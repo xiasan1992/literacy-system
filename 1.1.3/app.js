@@ -22,6 +22,25 @@ const presets = {
     colors: "红 黄 蓝 绿 白 黑 大 小 多 少"
 };
 
+// 必背诗文库汉字集（去重，按首次出现顺序）
+if (typeof bibeiPoems !== 'undefined' && bibeiPoems) {
+    function _uniqueBibeiChars(cat) {
+        var seen = {}, out = [];
+        for (var i = 0; i < bibeiPoems.length; i++) {
+            var p = bibeiPoems[i];
+            if (p.cat !== cat || !p.c) continue;
+            for (var j = 0; j < p.c.length; j++) {
+                var ch = p.c.charAt(j);
+                if (/[\u4e00-\u9fff]/.test(ch) && !seen[ch]) { seen[ch] = 1; out.push(ch); }
+            }
+        }
+        return out.join(' ');
+    }
+    presets.bibei_xiaoxue = _uniqueBibeiChars('小学必背');
+    presets.bibei_chuzhong = _uniqueBibeiChars('初中必背');
+    presets.bibei_gaozhong = _uniqueBibeiChars('高中必背');
+}
+
 // ===== 千古名句库（中高考常考）：识字页面展示涉及当前字的诗句 =====
 // 格式：{ '字': [{ q: '诗句', s: '出处', a: '作者' }, ...] }
 // ===== 千古名句库（中高考常考）：识字页面展示涉及当前字的诗句 =====
@@ -426,6 +445,9 @@ let currentFullPoem = ''; // 当前名句对应的完整诗文
 let currentQuoteType = ''; // 当前名句类型：poem/idiom/none
 let currentQuoteTitle = ''; // 当前名句的诗题
 let currentQuoteAuthor = ''; // 当前名句的作者
+let currentQuoteDynasty = ''; // 当前名句的朝代（必背诗文直接解析）
+let bibeiMatches = []; // 当前字的必背诗文匹配列表
+let bibeiMatchIdx = 0; // 当前显示的必背诗文匹配索引
 let lastTestedSeq = 0; // 单调递增计数器，保证每次答题/创建的时间标记严格递增
 function nextTestedTime() {
     const now = Date.now();
@@ -1105,6 +1127,82 @@ function navChar(delta) {
 // 展示当前字相关的千古名句（中高考常考）
 // 展示当前字相关的千古名句/成语（确保每个字都有内容）
 // 展示当前字相关的千古名句/成语（确保每个字都有内容）
+
+// ===== 必背诗文库（统编版）：识字页面优先展示含当前字的诗句，多篇时可切换 =====
+function _looksLikeVerse(content) {
+    var lines = content.split('\n');
+    var nonEmpty = 0, verse = 0;
+    for (var i = 0; i < lines.length; i++) {
+        var t = lines[i].replace(/[，。！？；、：""''""（）·！？、]/g, '').trim();
+        if (!t) continue;
+        nonEmpty++;
+        if (t.length >= 4 && t.length <= 8) verse++;
+    }
+    return nonEmpty >= 2 && verse / nonEmpty >= 0.6;
+}
+function searchQuoteFromBibei(char) {
+    bibeiMatches = [];
+    bibeiMatchIdx = 0;
+    if (typeof bibeiPoems === 'undefined' || !bibeiPoems) return null;
+    var verseMatches = [], proseMatches = [];
+    for (var i = 0; i < bibeiPoems.length; i++) {
+        var p = bibeiPoems[i];
+        if (!p.c || p.c.indexOf(char) < 0) continue;
+        var parts = p.c.split(/[，。！？；、\n]/);
+        var clause = '', bestScore = -1;
+        for (var k = 0; k < parts.length; k++) {
+            var seg = parts[k].trim();
+            if (!seg || seg.indexOf(char) < 0 || seg.length < 2) continue;
+            var score = 16 - Math.abs(seg.length - 8);
+            if (score > bestScore) { bestScore = score; clause = seg; }
+        }
+        if (!clause) clause = p.c.replace(/\n/g, ' ').slice(0, 24);
+        var item = { q: clause, t: p.t, a: p.a, d: p.d, c: p.c, cat: p.cat };
+        if (_looksLikeVerse(p.c)) verseMatches.push(item); else proseMatches.push(item);
+    }
+    bibeiMatches = verseMatches.concat(proseMatches);
+    if (bibeiMatches.length === 0) return null;
+    return bibeiMatches[0];
+}
+
+function renderBibeiQuote(match, quoteEl, expandBtn) {
+    var src = '—— ';
+    if (match.d) src += match.d + '·';
+    src += match.a + '《' + match.t + '》';
+    var html = '<span class="quote-text">★' + match.q + '</span>'
+        + '<span class="quote-source">' + src + '【必背】</span>';
+    if (bibeiMatches.length > 1) {
+        html += '<span class="quote-switcher">'
+            + '<button type="button" class="qs-btn" onclick="switchBibei(-1)">‹</button>'
+            + '<span class="qs-counter">' + (bibeiMatchIdx + 1) + '/' + bibeiMatches.length + '</span>'
+            + '<button type="button" class="qs-btn" onclick="switchBibei(1)">›</button>'
+            + '</span>';
+    }
+    quoteEl.innerHTML = html;
+    quoteEl.classList.remove('hidden');
+    currentFullPoem = match.c;
+    currentQuoteType = 'poem';
+    currentQuoteTitle = match.t;
+    currentQuoteAuthor = match.a;
+    currentQuoteDynasty = match.d;
+    if (expandBtn) {
+        expandBtn.classList.remove('hidden');
+        expandBtn.innerHTML = '📖 展开全诗';
+    }
+}
+
+function switchBibei(dir) {
+    if (!bibeiMatches || bibeiMatches.length === 0) return;
+    bibeiMatchIdx = (bibeiMatchIdx + dir + bibeiMatches.length) % bibeiMatches.length;
+    var match = bibeiMatches[bibeiMatchIdx];
+    var isRev = (typeof isReviewMode !== 'undefined') && isReviewMode;
+    var quoteEl = isRev ? DOMElements.revQuote : DOMElements.charQuote;
+    var expandBtn = isRev ? DOMElements.revQuoteExpand : DOMElements.quoteExpand;
+    var fullEl = isRev ? DOMElements.revQuoteFull : DOMElements.quoteFull;
+    if (fullEl) { fullEl.classList.add('hidden'); fullEl.innerHTML = ''; }
+    renderBibeiQuote(match, quoteEl, expandBtn);
+}
+
 function showCharQuote(char, isReview) {
     const quoteEl = isReview ? DOMElements.revQuote : DOMElements.charQuote;
     const expandBtn = isReview ? DOMElements.revQuoteExpand : DOMElements.quoteExpand;
@@ -1116,8 +1214,13 @@ function showCharQuote(char, isReview) {
     currentQuoteType = '';
     currentQuoteTitle = '';
     currentQuoteAuthor = '';
+    currentQuoteDynasty = '';
     if (fullEl) { fullEl.classList.add('hidden'); fullEl.innerHTML = ''; }
     if (expandBtn) expandBtn.classList.add('hidden');
+
+    // 0. 优先从必背诗文库搜索（小学/初中/高中必背）
+    var bibei = searchQuoteFromBibei(char);
+    if (bibei) { renderBibeiQuote(bibei, quoteEl, expandBtn); return; }
 
     // 1. 优先查精选手动名句库
     const manual = famousQuotes[char];
@@ -1216,7 +1319,7 @@ function toggleFullPoem(isReview) {
     if (!fullEl || !expandBtn) return;
     if (fullEl.classList.contains('hidden')) {
         // 展开：显示标题、作者、朝代、完整全诗
-        var dynasty = poetDynasty[currentQuoteAuthor] || '';
+        var dynasty = currentQuoteDynasty || poetDynasty[currentQuoteAuthor] || '';
         var header = '<div class="quote-full-header">'
             + '<span class="quote-full-title">《' + currentQuoteTitle + '》</span>'
             + '<span class="quote-full-author">' + currentQuoteAuthor + (dynasty ? ' · ' + dynasty : '') + '</span>'

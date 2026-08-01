@@ -27,3 +27,12 @@ Thumbs.db
 # 临时文件
 *.log
 tmp/
+
+# 测试临时文件
+*_shot*.png
+__utf8test.txt
+_*.js
+_gen_*.js
+_patch*.js
+_cleanup.js
+_test.js

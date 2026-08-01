@@ -1896,6 +1896,35 @@ body {
     display: none;
 }
 
+/* 必背诗文切换器 */
+.quote-switcher {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
+    gap: 4px;
+    vertical-align: middle;
+}
+.qs-btn {
+    background: rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    color: var(--primary, #333);
+    border-radius: 4px;
+    padding: 1px 8px;
+    font-size: 18px;
+    line-height: 1.5;
+    cursor: pointer;
+    user-select: none;
+}
+.qs-btn:hover { background: rgba(0, 0, 0, 0.12); }
+.qs-btn:active { transform: scale(0.92); }
+.qs-counter {
+    font-size: 13px;
+    opacity: 0.8;
+    min-width: 36px;
+    text-align: center;
+    white-space: nowrap;
+}
+
 .quote-full-text {
     font-size: 1rem;
     line-height: 1.8;

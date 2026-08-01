@@ -1,0 +1,14 @@
+﻿{
+  "appId": "com.hanzishizi.app",
+  "appName": "汉字识字系统",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "backgroundColor": "#667eea"
+  },
+  "ios": {
+    "backgroundColor": "#667eea"
+  }
+}
