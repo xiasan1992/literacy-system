@@ -377,6 +377,8 @@ let currentIdx = 0;
 let quizResult = { correct: 0, wrong: 0 };
 let isReviewMode = false;
 let quizStartTime = 0; // 新增：记录测试开始时间
+let currentFullPoem = ''; // 当前名句对应的完整诗文
+let currentQuoteType = ''; // 当前名句类型：poem/idiom/none
 let lastTestedSeq = 0; // 单调递增计数器，保证每次答题/创建的时间标记严格递增
 function nextTestedTime() {
     const now = Date.now();
@@ -437,6 +439,10 @@ const DOMElements = {
     quizProgressText: document.getElementById('quiz-progress-text'),
     charDisplay: document.getElementById('char-display'),
     charQuote: document.getElementById('char-quote'),
+    quoteExpand: document.getElementById('quote-expand'),
+    quoteFull: document.getElementById('quote-full'),
+    revQuoteExpand: document.getElementById('rev-quote-expand'),
+    revQuoteFull: document.getElementById('rev-quote-full'),
     charDisplayArea: document.getElementById('char-display-area'),
     charCorrectCount: document.getElementById('char-correct-count'),
     charWrongCount: document.getElementById('char-wrong-count'),
@@ -766,6 +772,10 @@ function bindEvents() {
     DOMElements.btnRevCorrect.addEventListener('click', () => handleAnswer(true));
     DOMElements.btnRevWrong.addEventListener('click', () => handleAnswer(false));
 
+    // 名句展开全诗按钮
+    if (DOMElements.quoteExpand) DOMElements.quoteExpand.addEventListener('click', () => toggleFullPoem(false));
+    if (DOMElements.revQuoteExpand) DOMElements.revQuoteExpand.addEventListener('click', () => toggleFullPoem(true));
+
     // 上翻下翻导航
     DOMElements.btnQuizPrev.addEventListener('click', () => navChar(-1));
     DOMElements.btnQuizNext.addEventListener('click', () => navChar(1));
@@ -1047,9 +1057,18 @@ function navChar(delta) {
 
 // 展示当前字相关的千古名句（中高考常考）
 // 展示当前字相关的千古名句/成语（确保每个字都有内容）
+// 展示当前字相关的千古名句/成语（确保每个字都有内容）
 function showCharQuote(char, isReview) {
     const quoteEl = isReview ? DOMElements.revQuote : DOMElements.charQuote;
+    const expandBtn = isReview ? DOMElements.revQuoteExpand : DOMElements.quoteExpand;
+    const fullEl = isReview ? DOMElements.revQuoteFull : DOMElements.quoteFull;
     if (!quoteEl) return;
+
+    // 重置展开状态
+    currentFullPoem = '';
+    currentQuoteType = '';
+    if (fullEl) { fullEl.classList.add('hidden'); fullEl.innerHTML = ''; }
+    if (expandBtn) expandBtn.classList.add('hidden');
 
     // 1. 优先查精选手动名句库
     const manual = famousQuotes[char];
@@ -1058,15 +1077,28 @@ function showCharQuote(char, isReview) {
         quoteEl.innerHTML = '<span class="quote-text">' + q.q + '</span>'
             + '<span class="quote-source">—— ' + q.a + '《' + q.s + '》</span>';
         quoteEl.classList.remove('hidden');
+        // 尝试找完整全诗
+        var full = findFullPoem(q.s, q.a);
+        if (full && full !== q.q) {
+            currentFullPoem = full;
+            currentQuoteType = 'poem';
+            if (expandBtn) expandBtn.classList.remove('hidden');
+        }
         return;
     }
 
-    // 2. 自动从千家诗搜索包含该字的诗句
+    // 2. 自动从千家诗搜索包含该字的诗句（返回完整诗信息）
     var autoQ = searchQuoteFromPoems(char);
     if (autoQ) {
         quoteEl.innerHTML = '<span class="quote-text">' + autoQ.q + '</span>'
             + '<span class="quote-source">—— ' + autoQ.a + '《' + autoQ.s + '》</span>';
         quoteEl.classList.remove('hidden');
+        // 有完整全诗
+        if (autoQ.fullC && autoQ.fullC !== autoQ.q) {
+            currentFullPoem = autoQ.fullC;
+            currentQuoteType = 'poem';
+            if (expandBtn) expandBtn.classList.remove('hidden');
+        }
         return;
     }
 
@@ -1076,16 +1108,17 @@ function showCharQuote(char, isReview) {
         quoteEl.innerHTML = '<span class="quote-text">' + idiom + '</span>'
             + '<span class="quote-source">—— 成语</span>';
         quoteEl.classList.remove('hidden');
+        // 成语没有全诗可展开
         return;
     }
 
-    // 4. 兜底：显示该字常见用法（从预设汉字组中找含该字的词）
+    // 4. 兜底
     quoteEl.innerHTML = '<span class="quote-text">正在学习「' + char + '」字</span>'
         + '<span class="quote-source">—— 继续加油！</span>';
     quoteEl.classList.remove('hidden');
 }
 
-// 从千家诗中搜索包含指定字的诗句
+// 从千家诗中搜索包含指定字的诗句，返回完整诗信息
 function searchQuoteFromPoems(char) {
     var results = [];
     for (var cat in qianjiashi) {
@@ -1094,11 +1127,10 @@ function searchQuoteFromPoems(char) {
         for (var i = 0; i < poems.length; i++) {
             var p = poems[i];
             if (!p.c || p.c.indexOf(char) < 0) continue;
-            // 取包含该字的半句（按，。分割）
             var parts = p.c.split(/[，。！？；]/);
             for (var j = 0; j < parts.length; j++) {
                 if (parts[j].indexOf(char) >= 0 && parts[j].length >= 2) {
-                    results.push({ q: parts[j], s: p.t, a: p.a });
+                    results.push({ q: parts[j], s: p.t, a: p.a, fullC: p.c });
                     break;
                 }
             }
@@ -1108,6 +1140,38 @@ function searchQuoteFromPoems(char) {
     }
     if (results.length === 0) return null;
     return results[Math.floor(Math.random() * results.length)];
+}
+
+// 根据标题和作者从千家诗中查找完整诗句
+function findFullPoem(title, author) {
+    for (var cat in qianjiashi) {
+        var poems = qianjiashi[cat];
+        if (!poems) continue;
+        for (var i = 0; i < poems.length; i++) {
+            if (poems[i].t === title && poems[i].a === author) {
+                return poems[i].c;
+            }
+        }
+    }
+    return null;
+}
+
+// 展开/收起完整全诗
+function toggleFullPoem(isReview) {
+    var fullEl = isReview ? DOMElements.revQuoteFull : DOMElements.quoteFull;
+    var expandBtn = isReview ? DOMElements.revQuoteExpand : DOMElements.quoteExpand;
+    if (!fullEl || !expandBtn) return;
+    if (fullEl.classList.contains('hidden')) {
+        // 展开
+        fullEl.innerHTML = '<div class="quote-full-text">' + currentFullPoem + '</div>';
+        fullEl.classList.remove('hidden');
+        expandBtn.innerHTML = '📖 收起全诗';
+    } else {
+        // 收起
+        fullEl.classList.add('hidden');
+        fullEl.innerHTML = '';
+        expandBtn.innerHTML = '📖 展开全诗';
+    }
 }
 
 
