@@ -131,6 +131,51 @@ const idiomQuotes = {
     '呀': '哎呀', '婶': '婶婶'
 };
 
+// ===== 作者朝代映射表 =====
+const poetDynasty = {
+    // 先秦
+    '诗经': '先秦', '孟子': '先秦', '孔子': '先秦',
+    // 汉魏晋南北朝
+    '汉乐府': '汉', '北朝民歌': '南北朝', '曹操': '三国', '曹植': '三国', '曹丕': '三国',
+    '陶渊明': '东晋', '谢灵运': '南北朝', '诸葛亮': '三国',
+    // 唐
+    '李白': '唐', '杜甫': '唐', '王维': '唐', '孟浩然': '唐', '王昌龄': '唐',
+    '王之涣': '唐', '高适': '唐', '岑参': '唐', '崔颢': '唐', '崔护': '唐',
+    '杜牧': '唐', '李商隐': '唐', '白居易': '唐', '刘禹锡': '唐', '柳宗元': '唐',
+    '韦应物': '唐', '韩愈': '唐', '贾岛': '唐', '李贺': '唐', '骆宾王': '唐',
+    '王勃': '唐', '杨炯': '唐', '卢照邻': '唐', '陈子昂': '唐', '张九龄': '唐',
+    '储光羲': '唐', '丘为': '唐', '令狐楚': '唐', '钱起': '唐', '钱珝': '唐',
+    '皇甫冉': '唐', '司空曙': '唐', '戴叔伦': '唐', '祖咏': '唐', '綦毋潜': '唐',
+    '常建': '唐', '李颀': '唐', '王湾': '唐', '杜审言': '唐', '李峤': '唐',
+    '宋之问': '唐', '王绩': '唐', '张谓': '唐', '丁仙芝': '唐', '耿湋': '唐',
+    '薛莹': '唐', '李昂': '唐', '苏颋': '唐', '张说': '唐', '朱放': '唐',
+    '太上隐者': '唐', '玄宗皇帝': '唐', '李适之': '唐', '张佑': '唐',
+    '释处默': '唐', '杨巨源': '唐', '王建': '唐', '韩翃': '唐', '高蟾': '唐',
+    '贾至': '唐', '李嘉佑': '唐', '林稹': '宋', '张继': '唐', '杜耒': '唐',
+    '赵嘏': '唐', '崔涂': '唐', '张耒': '唐', '窦叔向': '唐', '李朴': '唐',
+    '杜荀鹤': '唐', '沈佺期': '唐', '贺知章': '唐', '李绅': '唐', '孙逖': '唐',
+    '郑谷': '唐', '李涉': '唐', '高骈': '唐', '王贞白': '唐', '宋祁': '宋',
+    // 宋
+    '苏轼': '宋', '王安石': '宋', '欧阳修': '宋', '陆游': '宋', '辛弃疾': '宋',
+    '李清照': '宋', '岳飞': '宋', '朱熹': '宋', '杨万里': '宋', '范成大': '宋',
+    '叶绍翁': '宋', '赵恒': '宋', '黄庭坚': '宋', '程颢': '宋', '张栻': '宋',
+    '晁说之': '宋', '夏竦': '宋', '杜常': '宋', '王禹偁': '宋', '王驾': '宋',
+    '僧志南': '宋', '刘季孙': '宋', '谢枋得': '宋', '徐元杰': '宋', '曹豳': '宋',
+    '朱淑贞': '宋', '王淇': '宋', '刘克庄': '宋', '叶采': '宋', '王令': '宋',
+    '司马光': '宋', '赵师秀': '宋', '曾几': '宋', '戴复古': '宋', '翁卷': '宋',
+    '雷震': '宋', '杨朴': '宋', '刘翰': '宋', '林升': '宋', '周必大': '宋',
+    '蔡确': '宋', '洪咨夔': '宋', '白玉蟾': '宋', '卢梅坡': '宋', '邵雍': '宋',
+    '晏殊': '宋', '赵鼎': '宋', '高翥': '宋', '僧惠洪': '宋', '林逋': '宋',
+    '王中': '宋', '陈抟': '宋', '蔡襄': '宋', '王珪': '宋', '文天祥': '宋',
+    '牧童': '宋',
+    // 明
+    '朱权': '明', '朱厚熜': '明',
+    // 清
+    '龚自珍': '清',
+    // 其他
+    '无名氏': '佚名',
+};
+
 
 // ===== 千家诗：按首测试（四卷 → 每卷 → 每首诗），点选分类后用下拉选具体诗 =====
 const qianjiashi = {
@@ -379,6 +424,8 @@ let isReviewMode = false;
 let quizStartTime = 0; // 新增：记录测试开始时间
 let currentFullPoem = ''; // 当前名句对应的完整诗文
 let currentQuoteType = ''; // 当前名句类型：poem/idiom/none
+let currentQuoteTitle = ''; // 当前名句的诗题
+let currentQuoteAuthor = ''; // 当前名句的作者
 let lastTestedSeq = 0; // 单调递增计数器，保证每次答题/创建的时间标记严格递增
 function nextTestedTime() {
     const now = Date.now();
@@ -1067,6 +1114,8 @@ function showCharQuote(char, isReview) {
     // 重置展开状态
     currentFullPoem = '';
     currentQuoteType = '';
+    currentQuoteTitle = '';
+    currentQuoteAuthor = '';
     if (fullEl) { fullEl.classList.add('hidden'); fullEl.innerHTML = ''; }
     if (expandBtn) expandBtn.classList.add('hidden');
 
@@ -1082,6 +1131,8 @@ function showCharQuote(char, isReview) {
         if (full && full !== q.q) {
             currentFullPoem = full;
             currentQuoteType = 'poem';
+            currentQuoteTitle = q.s;
+            currentQuoteAuthor = q.a;
             if (expandBtn) expandBtn.classList.remove('hidden');
         }
         return;
@@ -1097,6 +1148,8 @@ function showCharQuote(char, isReview) {
         if (autoQ.fullC && autoQ.fullC !== autoQ.q) {
             currentFullPoem = autoQ.fullC;
             currentQuoteType = 'poem';
+            currentQuoteTitle = autoQ.s;
+            currentQuoteAuthor = autoQ.a;
             if (expandBtn) expandBtn.classList.remove('hidden');
         }
         return;
@@ -1162,8 +1215,14 @@ function toggleFullPoem(isReview) {
     var expandBtn = isReview ? DOMElements.revQuoteExpand : DOMElements.quoteExpand;
     if (!fullEl || !expandBtn) return;
     if (fullEl.classList.contains('hidden')) {
-        // 展开
-        fullEl.innerHTML = '<div class="quote-full-text">' + currentFullPoem + '</div>';
+        // 展开：显示标题、作者、朝代、完整全诗
+        var dynasty = poetDynasty[currentQuoteAuthor] || '';
+        var header = '<div class="quote-full-header">'
+            + '<span class="quote-full-title">《' + currentQuoteTitle + '》</span>'
+            + '<span class="quote-full-author">' + currentQuoteAuthor + (dynasty ? ' · ' + dynasty : '') + '</span>'
+            + '</div>';
+        var body = '<div class="quote-full-text">' + currentFullPoem + '</div>';
+        fullEl.innerHTML = header + body;
         fullEl.classList.remove('hidden');
         expandBtn.innerHTML = '📖 收起全诗';
     } else {
