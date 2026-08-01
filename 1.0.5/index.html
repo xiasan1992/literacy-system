@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="汉字识别学习系统 - 帮助孩子学习和识别汉字">
+    <title>汉字识别学习系统</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 粒子背景 -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- 导航栏 -->
+    <nav id="main-nav">
+        <div class="nav-brand">
+            <span class="nav-icon">📖</span>
+            <span class="nav-title">汉字识别</span>
+        </div>
+        <div class="nav-links">
+            <button id="nav-home" class="nav-btn active" data-page="home">
+                <span class="btn-icon">🏠</span>
+                <span class="btn-text">首页</span>
+            </button>
+            <button id="nav-quiz" class="nav-btn" data-page="quiz">
+                <span class="btn-icon">✏️</span>
+                <span class="btn-text">测试</span>
+            </button>
+            <button id="nav-review" class="nav-btn" data-page="review">
+                <span class="btn-icon">🔄</span>
+                <span class="btn-text">复习错字</span>
+            </button>
+            <button id="nav-stats" class="nav-btn" data-page="stats">
+                <span class="btn-icon">📊</span>
+                <span class="btn-text">统计</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 首页 -->
+    <section id="page-home" class="page active">
+        <div class="home-container">
+            <div class="hero-section">
+                <h1 class="hero-title">
+                    <span class="title-char" style="--delay: 0">汉</span>
+                    <span class="title-char" style="--delay: 1">字</span>
+                    <span class="title-char" style="--delay: 2">识</span>
+                    <span class="title-char" style="--delay: 3">别</span>
+                    <span class="title-char" style="--delay: 4">系</span>
+                    <span class="title-char" style="--delay: 5">统</span>
+                </h1>
+                <p class="hero-subtitle">输入要学习的汉字，开始识字之旅</p>
+            </div>
+
+            <div class="input-section">
+                <div class="input-card">
+                    <label for="char-input" class="input-label">请输入要学习的汉字</label>
+                    <p class="input-hint">每个汉字用空格或逗号分隔，例如：大 小 人 口 手</p>
+                    <textarea id="char-input" class="char-textarea" placeholder="在此输入汉字..." rows="4"></textarea>
+                    
+                    <div class="test-options">
+                        <label>
+                            <input type="radio" name="order-mode" value="random"> 乱序测试
+                        </label>
+                        <label>
+                            <input type="radio" name="order-mode" value="sequential" checked> 顺序测试
+                        </label>
+                        <label>
+                            <input type="checkbox" id="keep-duplicates"> 保留重复汉字（按输入顺序）
+                        </label>
+                    </div>
+
+                    <div class="input-actions">
+                        <button id="btn-start-quiz" class="btn btn-primary btn-lg">
+                            <span>开始测试</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+                        <button id="btn-review-specific" class="btn btn-wrong btn-lg">
+                            <span>复习其中错字</span>
+                        </button>
+                        <button id="btn-auto-recommend" class="btn btn-correct btn-lg">
+                            <span>智能推荐错字</span>
+                        </button>
+                        <button id="btn-load-preset" class="btn btn-secondary btn-lg">
+                            <span>常用汉字</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 预设汉字集 -->
+                <div id="preset-panel" class="preset-panel hidden">
+                    <div class="preset-header">
+                        <h3 class="preset-title">选择预设汉字集</h3>
+                        <button id="preset-toggle" class="preset-toggle-btn">
+                            <span id="preset-toggle-icon">+</span>
+                        </button>
+                    </div>
+                    <div class="preset-grid">
+                        <button class="preset-btn" data-preset="sanzijing">
+                            <span class="preset-emoji">📜</span>
+                            <span class="preset-name">三字经</span>
+                            <span class="preset-desc">人之初，性本善...</span>
+                        </button>
+                        <button class="preset-btn" data-preset="baijiaxing">
+                            <span class="preset-emoji">👪</span>
+                            <span class="preset-name">百家姓</span>
+                            <span class="preset-desc">赵钱孙李，周吴郑王...</span>
+                        </button>
+                        <button class="preset-btn" data-preset="qianziwen">
+                            <span class="preset-emoji">千</span>
+                            <span class="preset-name">千字文</span>
+                            <span class="preset-desc">天地玄黄，宇宙洪荒...</span>
+                        </button>
+                        <button class="preset-btn" data-preset="xiaoyang">
+                            <span class="preset-emoji">🐑</span>
+                            <span class="preset-name">小羊上山第一级</span>
+                            <span class="preset-desc">一二三四五六七八九十...</span>
+                        </button>
+                        <button class="preset-btn" data-preset="xiaoyang2">
+                            <span class="preset-emoji">🐑</span>
+                            <span class="preset-name">小羊上山第二级</span>
+                            <span class="preset-desc">人儿子口几个中牙门手...</span>
+                        </button>
+                        <button class="preset-btn" data-preset="xiaoyang3">
+                            <span class="preset-emoji">🐑</span>
+                            <span class="preset-name">小羊上山第三级</span>
+                            <span class="preset-desc">木王日百千万公主生长...</span>
+                        </button>
+                        <button class="preset-btn" data-preset="xiaoyang4">
+                            <span class="preset-emoji">🐑</span>
+                            <span class="preset-name">小羊上山第四级</span>
+                            <span class="preset-desc">土火光力气午发电宝贝...</span>
+                        </button>
+                        <button class="preset-btn" data-preset="xiaoyang5">
+                            <span class="preset-emoji">🐑</span>
+                            <span class="preset-name">小羊上山第五级</span>
+                            <span class="preset-desc">工方文本石金朋友叔娃...</span>
+                        </button>
+                        <button class="preset-btn" data-preset="xiaoyang6">
+                            <span class="preset-emoji">🐑</span>
+                            <span class="preset-name">小羊上山第六级</span>
+                            <span class="preset-desc">皮毛目田尺业句台众江...</span>
+                        </button>
+                        <button class="preset-btn" data-preset="basic">
+                            <span class="preset-emoji">🌟</span>
+                            <span class="preset-name">基础汉字</span>
+                            <span class="preset-desc">一二三四五六七八九十</span>
+                        </button>
+                        <button class="preset-btn" data-preset="nature">
+                            <span class="preset-emoji">🌿</span>
+                            <span class="preset-name">自然万物</span>
+                            <span class="preset-desc">日月水火山石田土风雨</span>
+                        </button>
+                        <button class="preset-btn" data-preset="body">
+                            <span class="preset-emoji">🧒</span>
+                            <span class="preset-name">身体部位</span>
+                            <span class="preset-desc">人口手足目耳头发心口</span>
+                        </button>
+                        <button class="preset-btn" data-preset="family">
+                            <span class="preset-emoji">👨‍👩‍👧‍👦</span>
+                            <span class="preset-name">家庭成员</span>
+                            <span class="preset-desc">爸妈爷奶哥姐弟妹叔婶</span>
+                        </button>
+                        <button class="preset-btn" data-preset="animals">
+                            <span class="preset-emoji">🐾</span>
+                            <span class="preset-name">动物世界</span>
+                            <span class="preset-desc">猫狗鸡鸭鱼牛马羊虎龙</span>
+                        </button>
+                        <button class="preset-btn" data-preset="colors">
+                            <span class="preset-emoji">🎨</span>
+                            <span class="preset-name">颜色大小</span>
+                            <span class="preset-desc">红黄蓝绿白黑大小多少</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 学习统计概览 -->
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <span class="stat-number" id="total-learned">0</span>
+                        <span class="stat-label">已学汉字</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="total-correct">0</span>
+                        <span class="stat-label">答对次数</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="total-wrong">0</span>
+                        <span class="stat-label">答错次数</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="accuracy-rate">0%</span>
+                        <span class="stat-label">正确率</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 测试页面 -->
+    <section id="page-quiz" class="page">
+        <div class="quiz-container">
+            <!-- 进度条 -->
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="quiz-progress"></div>
+                <span class="progress-text" id="quiz-progress-text">0 / 0</span>
+            </div>
+
+            <!-- 汉字显示区 -->
+            <div class="char-display-area" id="char-display-area">
+                <div class="char-display" id="char-display">字</div>
+            </div>
+
+            <!-- 操作按钮 -->
+            <div class="quiz-actions">
+                <button id="btn-wrong" class="btn btn-wrong btn-xl">
+                    <span class="btn-icon-large">✘</span>
+                    <span>不认识</span>
+                </button>
+                <button id="btn-correct" class="btn btn-correct btn-xl">
+                    <span class="btn-icon-large">✔</span>
+                    <span>认识</span>
+                </button>
+            </div>
+
+            <!-- 当前字信息 -->
+            <div class="char-info" id="char-info">
+                <span id="char-correct-count">✔ 0</span>
+                <span class="info-divider">|</span>
+                <span id="char-wrong-count">✘ 0</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 复习错字页面 -->
+    <section id="page-review" class="page">
+        <div class="review-container">
+            <!-- 无错字提示 -->
+            <div id="no-wrong-chars" class="empty-state">
+                <span class="empty-icon">🎉</span>
+                <h2>太棒了！</h2>
+                <p>目前没有需要复习的错字</p>
+                <button class="btn btn-primary btn-lg" data-page="home" onclick="switchPage('home')">返回首页</button>
+            </div>
+
+            <!-- 复习内容 -->
+            <div id="review-content" class="hidden">
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="review-progress"></div>
+                    <span class="progress-text" id="review-progress-text">0 / 0</span>
+                </div>
+
+                <div class="char-display-area" id="review-display-area">
+                    <div class="char-display review-char" id="review-char-display">字</div>
+                </div>
+
+                <div class="quiz-actions">
+                    <button id="btn-review-wrong" class="btn btn-wrong btn-xl">
+                        <span class="btn-icon-large">✘</span>
+                        <span>还是不认识</span>
+                    </button>
+                    <button id="btn-review-correct" class="btn btn-correct btn-xl">
+                        <span class="btn-icon-large">✔</span>
+                        <span>认识了</span>
+                    </button>
+                </div>
+
+                <div class="char-info" id="review-char-info">
+                    <span id="review-correct-count">✔ 0</span>
+                    <span class="info-divider">|</span>
+                    <span id="review-wrong-count">✘ 0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 统计页面 -->
+    <section id="page-stats" class="page">
+        <div class="stats-container">
+            <h2 class="stats-title">📊 学习统计</h2>
+
+            <!-- 筛选器 -->
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all" id="filter-all">全部</button>
+                <button class="filter-btn" data-filter="correct" id="filter-correct">已掌握</button>
+                <button class="filter-btn" data-filter="wrong" id="filter-wrong">需复习</button>
+                <button class="filter-btn danger" data-filter="clear" id="filter-clear">清除记录</button>
+            </div>
+
+            <!-- 汉字卡片网格 -->
+            <div class="char-stats-grid" id="char-stats-grid">
+                <!-- 动态生成 -->
+            </div>
+
+            <!-- 空状态 -->
+            <div id="stats-empty" class="empty-state hidden">
+                <span class="empty-icon">📝</span>
+                <h2>还没有学习记录</h2>
+                <p>开始测试后这里会显示学习统计</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 测试完成弹窗 -->
+    <div id="quiz-complete-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-icon">🏆</div>
+            <h2 class="modal-title">测试完成！</h2>
+            <div class="modal-stats">
+                <div class="modal-stat">
+                    <span class="modal-stat-number" id="modal-correct">0</span>
+                    <span class="modal-stat-label">答对</span>
+                </div>
+                <div class="modal-stat">
+                    <span class="modal-stat-number" id="modal-wrong">0</span>
+                    <span class="modal-stat-label">答错</span>
+                </div>
+                <div class="modal-stat">
+                    <span class="modal-stat-number" id="modal-accuracy">0%</span>
+                    <span class="modal-stat-label">正确率</span>
+                </div>
+                <div class="modal-stat">
+                    <span class="modal-stat-number" id="modal-time">0秒</span>
+                    <span class="modal-stat-label">用时</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="btn-modal-review" class="btn btn-secondary btn-lg">复习错字</button>
+                <button id="btn-modal-retry" class="btn btn-primary btn-lg">再测一次</button>
+                <button id="btn-modal-home" class="btn btn-ghost btn-lg">返回首页</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 确认清除弹窗 -->
+    <div id="clear-confirm-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-icon">⚠️</div>
+            <h2 class="modal-title">确认清除</h2>
+            <p class="modal-desc">确定要清除所有学习记录吗？此操作不可恢复。</p>
+            <div class="modal-actions">
+                <button id="btn-cancel-clear" class="btn btn-secondary btn-lg">取消</button>
+                <button id="btn-confirm-clear" class="btn btn-danger btn-lg">确认清除</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

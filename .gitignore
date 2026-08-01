@@ -1,6 +1,29 @@
-﻿.DS_Store
+# 依赖
+node_modules/
+
+# 数据库/用户数据（含密码哈希，不上传）
+database.json
+
+# 构建产物
+release/
+dist/
+www/
+*.exe
+*.apk
+*.blockmap
+
+# 证书与密钥
+*.pfx
+*.keystore
+
+# 系统/IDE
+.DS_Store
 Thumbs.db
 .vscode/
 .idea/
 *.suo
 *.user
+
+# 临时文件
+*.log
+tmp/
