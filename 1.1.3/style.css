@@ -1800,3 +1800,51 @@ body {
         display: none;
     }
 }
+
+/* ========== 千古名句展示 (1.1.3) ========== */
+.char-quote {
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 2vh;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(255, 248, 240, 0.9), rgba(240, 247, 255, 0.9));
+    border-left: 3px solid var(--primary-light);
+    border-radius: var(--radius-md);
+    animation: fadeIn 0.5s ease-out;
+    min-height: 0;
+    transition: opacity 0.3s;
+}
+
+.char-quote.hidden {
+    display: none;
+}
+
+.char-quote .quote-text {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    font-family: "KaiTi", "Kaiti SC", serif;
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+
+.char-quote .quote-source {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .char-quote {
+        padding: 8px 14px;
+    }
+    .char-quote .quote-text {
+        font-size: 0.95rem;
+    }
+    .char-quote .quote-source {
+        font-size: 0.75rem;
+    }
+}
