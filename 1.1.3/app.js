@@ -1,0 +1,1830 @@
+// 预设汉字集
+const presets = {
+    // ===== 新增：三字经、百家姓、千字文（完整收录，保留重复字，按原文顺序） =====
+    sanzijing: "人之初性本善性相近习相远苟不教性乃迁教之道贵以专昔孟母择邻处子不学断机杼窦燕山有义方教五子名俱扬养不教父之过教不严师之惰子不学非所宜幼不学老何为玉不琢不成器人不学不知义为人子方少时亲师友习礼仪香九龄能温席孝于亲所当执融四岁能让梨弟于长宜先知首孝悌次见闻知某数识某文一而十十而百百而千千而万三才者天地人三光者日月星三纲者君臣义父子亲夫妇顺曰春夏曰秋冬此四时运不穷曰南北曰西东此四方应乎中曰水火木金土此五行本乎数曰仁义礼智信此五常不容紊稻粱菽麦黍稷此六谷人所食马牛羊鸡犬豕此六畜人所饲曰喜怒曰哀惧爱恶欲七情具匏土革木石金丝与竹乃八音高曾祖父而身身而子子而孙自子孙至玄曾乃九族人之伦父子恩夫妇从兄则友弟则恭长幼序友与朋君则敬臣则忠此十义人所同凡训蒙须讲究详训诂明句读为学者必有初小学终至四书论语者二十篇群弟子记善言孟子者七篇止讲道德说仁义作中庸子思笔中不偏庸不易作大学乃曾子自修齐至平治孝经通四书熟如六经始可读诗书易礼春秋号六经当讲求有连山有归藏有周易三易详有典谟有训诰有誓命书之奥我周公作周礼著六官存治体大小戴注礼记述圣言礼乐备曰国风曰雅颂号四诗当讽咏诗既亡春秋作寓褒贬别善恶三传者有公羊有左氏有谷梁经既明方读子撮其要记其事五子者有荀扬文中子及老庄经子通读诸史考世系知终始自羲农至黄帝号三皇居上世唐有虞号二帝相揖逊称盛世夏有禹商有汤周文武称三王夏传子家天下四百载迁夏社汤伐夏国号商六百载至纣亡周武王始诛纣八百载最长久周辙东王纲坠逞干戈尚游说始春秋终战国五霸强七雄出嬴秦氏始兼并传二世楚汉争高祖兴汉业建至孝平王莽篡光武兴为东汉四百年终于献魏蜀吴争汉鼎号三国迄两晋宋齐继梁陈承为南朝都金陵北元魏分东西宇文周与高齐迨至隋一土宇不再传失统绪唐高祖起义师除隋乱创国基二十传三百载梁灭之国乃改梁唐晋及汉周称五代皆有由炎宋兴受周禅十八传南北混辽与金帝号纷迨灭辽宋犹存至元兴金绪歇有宋世一同灭并中国兼戎狄明太祖久亲师传建文方四嗣迁北京永乐嗣迨崇祯煤山逝清太祖膺景命靖四方克大定廿一史全在兹载治乱知兴亡读史者考实录通古今若亲目口而诵心而维朝于斯夕于斯昔仲尼师项橐古圣贤尚勤学赵中令读鲁论彼既仕学且勤披蒲编削竹简彼无书且知勉头悬梁锥刺股彼不教自勤苦如囊萤如映雪家虽贫学不辍如负薪如挂角身虽劳犹苦卓苏老泉二十七始发愤读书籍彼既老犹悔迟尔小生宜早思若梁灏八十二对大廷魁多士彼既成众称异尔小生宜立志莹八岁能咏诗泌七岁能赋棋彼颖悟人称奇尔幼学当效之蔡文姬能辨琴谢道韫能咏吟彼女子且聪敏尔男子当自警唐刘晏方七岁举神童作正字彼虽幼身已仕尔幼学勉而致有为者亦若是犬守夜鸡司晨苟不学曷为人蚕吐丝蜂酿蜜人不学不如物幼而学壮而行上致君下泽民扬名声显父母光于前裕于后人遗子金满籯我教子惟一经勤有功戏无益戒之哉宜勉力",
+    
+    baijiaxing: "赵钱孙李周吴郑王冯陈褚卫蒋沈韩杨朱秦尤许何吕施张孔曹严华金魏陶姜戚谢邹喻柏水窦章云苏潘葛奚范彭郎鲁韦昌马苗凤花方俞任袁柳酆鲍史唐费廉岑薛雷贺倪汤滕殷罗毕郝邬安常乐于时傅皮卞齐康伍余元卜顾孟平黄和穆萧尹姚邵湛汪祁毛禹狄米贝明臧计伏成戴谈宋茅庞熊纪舒屈项祝董梁杜阮蓝闵席季麻强贾路娄危江童颜郭梅盛林刁钟徐邱骆高夏蔡田胡凌霍虞万支柯昝管卢莫经房裘缪干解应宗丁宣贲邓郁单杭洪包诸左石崔吉钮龚程嵇邢滑裴陆荣翁荀羊於惠甄曲家封芮羿储靳汲邴糜松井段富巫乌焦巴弓牧隗山谷车侯宓蓬全郗班仰秋仲伊宫宁仇栾暴甘斜厉戎祖武符刘景詹束龙叶幸司韶郜黎蓟薄印宿白怀蒲邰从鄂索咸籍赖卓蔺屠蒙池乔阴郁胥能苍双闻莘党翟谭贡劳逄姬申扶堵冉宰郦雍却璩桑桂濮牛寿通边扈燕冀郏浦尚农温别庄晏柴瞿阎充慕连茹习宦艾鱼容向古易慎戈廖庾终暨居衡步都耿满弘匡国文寇广禄阙东欧殳沃利蔚越夔隆师巩厍聂晁勾敖融冷訾辛阚那简饶空曾毋沙乜养鞠须丰巢关蒯相查后荆红游竺权逯盖益桓公万俟司马上官欧阳夏侯诸葛闻人东方赫连皇甫尉迟公羊澹台公冶宗政濮阳淳于单于太叔申屠公孙仲孙轩辕令狐钟离宇文长孙慕容鲜于闾丘司徒司空亓官司寇仉督子车颛孙端木巫马公西漆雕乐正壤驷公良拓跋夹谷宰父谷粱晋楚闫法汝鄢涂钦段干百里东郭南门呼延归海羊舌微生岳帅缑亢况后有琴梁丘左丘东门西门商牟佘佴伯赏南宫墨哈谯笪年爱阳佟第五言福百家姓终",
+    
+    qianziwen: "天地玄黄宇宙洪荒日月盈昃辰宿列张寒来暑往秋收冬藏闰余成岁律吕调阳云腾致雨露结为霜金生丽水玉出昆冈剑号巨阙珠称夜光果珍李柰菜重芥姜海咸河淡鳞潜羽翔龙师火帝鸟官人皇始制文字乃服衣裳推位让国有虞陶唐吊民伐罪周发殷汤坐朝问道垂拱平章爱育黎首臣伏戎羌遐迩一体率宾归王鸣凤在竹白驹食场化被草木赖及万方盖此身发四大五常恭惟鞠养岂敢毁伤女慕贞洁男效才良知过必改得能莫忘罔谈彼短靡恃己长信使可覆器欲难量墨悲丝染诗赞羔羊景行维贤克念作圣德建名立形端表正空谷传声虚堂习听祸因恶积福缘善庆尺璧非宝寸阴是竞资父事君曰严与敬孝当竭力忠则尽命临深履薄夙兴温凊似兰斯馨如松之盛川流不息渊澄取映容止若思言辞安定笃初诚美慎终宜令荣业所基籍甚无竟学优登仕摄职从政存以甘棠去而益咏乐殊贵贱礼别尊卑上和下睦夫唱妇随外受傅训入奉母仪诸姑伯叔犹子比儿孔怀兄弟同气连枝交友投分切磨箴规仁慈隐恻造次弗离节义廉退颠沛匪亏性静情逸心动神疲守真志满逐物意移坚持雅操好爵自縻都邑华夏东西二京背邙面洛浮渭据泾宫殿盘郁楼观飞惊图写禽兽画彩仙灵丙舍傍启甲帐对楹肆筵设席鼓瑟吹笙升阶纳陛弁转疑星右通广内左达承明既集坟典亦聚群英杜稿钟隶漆书壁经府罗将相路侠槐卿户封八县家给千兵高冠陪辇驱毂振缨世禄侈富车驾肥轻策功茂实勒碑刻铭磻溪伊尹佐时阿衡奄宅曲阜微旦孰营桓公匡合济弱扶倾绮回汉惠说感武丁俊乂密勿多士实宁晋楚更霸赵魏困横假途灭虢践土会盟何遵约法韩弊烦刑起翦颇牧用军最精宣威沙漠驰誉丹青九州禹迹百郡秦并岳宗泰岱禅主云亭雁门紫塞鸡田赤城昆池碣石巨野洞庭旷远绵邈岩岫杳冥治本于农务兹稼穑俶载南亩我艺黍稷税熟贡新劝赏黜陟孟轲敦素史鱼秉直庶几中庸劳谦谨敕聆音察理鉴貌辨色贻厥嘉猷勉其祗植省躬讥诫宠增抗极殆辱近耻林皋幸即两疏见机解组谁逼索居闲处沉默寂寥求古寻论散虑逍遥欣奏累遣戚谢欢招渠荷的历园莽抽条枇杷晚翠梧桐蚤凋陈根委翳落叶飘摇游鹍独运凌摩绛霄耽读玩市寓目囊箱易輶攸畏属耳垣墙具膳餐饭适口充肠饱饫烹宰饥厌糟糠亲戚故旧老少异粮妾御绩纺侍巾帷房纨扇圆絜银烛炜煌昼眠夕寐蓝笋象床弦歌酒宴接杯举觞矫手顿足悦豫且康嫡后嗣续祭祀烝尝稽颡再拜悚惧恐惶笺牒简要顾答审详骸垢想浴执热愿凉驴骡犊特骇跃超骧诛斩贼盗捕获叛亡布射僚丸嵇琴阮啸恬笔伦纸钧巧任钓释纷利俗并皆佳妙毛施淑姿工颦妍笑年矢每催曦晖朗曜璇玑悬斡晦魄环照指薪修祜永绥吉劭矩步引领俯仰廊庙束带矜庄徘徊瞻眺孤陋寡闻愚蒙等诮谓语助者焉哉乎也",
+
+    // ===== 原有预设 =====
+    xiaoyang: "一 二 三 四 五 六 七 八 九 十 两 只 头 又 了 不 大 小 上 下 多 少 白 天 云 山 太 阳 月 亮 星 马 牛 羊 兔 虫 鸟 花 草 树 地 吃 看 走 笑 来 飞 爱 是 跑 跳 高 兴 快 乐 好 的 爸 妈 我",
+    xiaoyang2: "人 儿 子 口 几 个 中 牙 门 手 心 什 么 开 可 回 出 去 里 床 车 家 爷 奶 你 水 饭 有 找 坐 听 玩 哭 起 喝 到 河 海 风 雨 雪 春 夏 秋 冬 鱼 狼 猫 狗 蝴 蝶 蜜 蜂 睡 红 蓝 绿 美 丽",
+    xiaoyang3: "木 王 日 百 千 万 公 主 生 长 见 女 在 早 叶 森 林 书 画 学 习 对 没 老 师 他 们 前 后 哥 姐 弟 妹 国 衣 服 幼 园 校 爬 藏 说 觉 打 写 做 穿 要 想 黄 黑 很 再 把 和 得 着 方 直 竹",
+    xiaoyang4: "土 火 光 力 气 午 发 电 宝 贝 自 己 身 今 年 岁 米 面 包 瓜 果 点 字 话 机 船 菜 孩 为 比 会 站 行 叫 过 关 喜 欢 怕 给 跟 进 干 杯 青 明 晚 真 饱 错 东 西 外 每 这 她 也 还 以 呢",
+    xiaoyang5: "工 方 文 本 石 金 朋 友 叔 娃 婆 医 耳 眼 睛 蛙 鸡 鸭 苹 桃 球 笔 灯 语 课 歌 声 音 边 时 体 样 分 问 变 成 用 加 买 当 动 作 住 放 读 转 唱 停 游 数 像 反 正 同 空 新 片 半 朵 条 北 南 那 谁 才 更 都 从 向 就 辫 布 猜 层 低 第 掉 翻 环 救",
+    xiaoyang6: "皮 毛 目 田 尺 业 句 台 众 江 伞 肉 第 名 色 足 肚 乌 鸦 蝌 蚪 尾 巴 芽 杏 柳 莲 步 诗 词 桥 洞 影 院 彩 旗 种 棋 桌 昨 夜 梦 候 班 路 物 雷 办 法 采 升 闪 挂 活 许 参 练 算 念 摇 摘 落 无 全 久 近 远 冷 热 暖 短 最 难 处 群 左 右 旁 它 呀",
+    basic: "一 二 三 四 五 六 七 八 九 十",
+    nature: "日 月 水 火 山 石 田 土 风 雨",
+    body: "人 口 手 足 目 耳 头 发 心 牙",
+    family: "爸 妈 爷 奶 哥 姐 弟 妹 叔 婶",
+    animals: "猫 狗 鸡 鸭 鱼 牛 马 羊 虎 龙",
+    colors: "红 黄 蓝 绿 白 黑 大 小 多 少"
+};
+
+// ===== 千家诗：按首测试（四卷 → 每卷 → 每首诗），点选分类后用下拉选具体诗 =====
+const qianjiashi = {
+    五绝: [
+        {t:"春晓", a:"孟浩然", c:"春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。"},
+        {t:"访袁拾遗不遇", a:"孟浩然", c:"洛阳访才子，江岭作流人。闻说梅花早，何如此地春。"},
+        {t:"送郭司仓", a:"王昌龄", c:"映门淮水绿，留骑主人心。明月随良掾，春潮夜夜深。"},
+        {t:"洛阳道", a:"储光羲", c:"大道直如发，春来佳气多。五陵贵公子，双双呜玉珂。"},
+        {t:"独坐敬亭山", a:"李白", c:"众鸟高飞尽，孤云独去闲。相看两不厌，只有敬亭山。"},
+        {t:"登鹳雀楼", a:"王之涣", c:"白日依山尽，黄河入海流。欲穷千里目，更上一层楼。"},
+        {t:"观永乐公主入蕃", a:"孙逖", c:"边地莺花少，年来未觉新。美人天上落，龙塞始应春。"},
+        {t:"左掖梨花", a:"丘为", c:"冷艳全欺雪，余香乍入衣。春风且莫定，吹向玉阶飞。"},
+        {t:"思君恩", a:"令狐楚", c:"小苑莺歌歇，长门蝶舞多。眼看春又去，翠辇不曾过。"},
+        {t:"题袁氏别业", a:"贺知章", c:"主人不相识，偶坐为林泉。莫谩愁沽酒，囊中自有钱。"},
+        {t:"夜送赵纵", a:"杨炯", c:"赵氏连城璧，由来天下传。送君还旧府，明月满前川。"},
+        {t:"竹里馆", a:"王维", c:"独坐幽篁里，弹琴复长啸。深林人不知，明月来相照。"},
+        {t:"送朱大入秦", a:"孟浩然", c:"避人五陵去，宝剑值千金。分手脱相赠，平生一片心。"},
+        {t:"长干行", a:"崔颢", c:"君家在何处，妾住在横塘。停船暂借问，或恐是同乡。"},
+        {t:"咏史", a:"高适", c:"尚有绨袍赠，应怜范叔寒。不知天下士，犹作布衣看。"},
+        {t:"罢相作", a:"李适之", c:"避贤初罢相，乐圣且衔杯。为问门前客，今朝几个来。"},
+        {t:"逢侠者", a:"钱起", c:"燕赵悲歌士，相逢剧孟家。寸心言不尽，前路日将斜。"},
+        {t:"江行望匡庐", a:"钱珝", c:"咫尺愁风雨，匡庐不可登。只疑云雾窟，犹有六朝僧。"},
+        {t:"答李浣", a:"韦应物", c:"林中观易罢，溪上对鸥闲。楚俗饶词客，何人最往还。"},
+        {t:"秋风引", a:"刘禹锡", c:"何处秋风至，萧萧送雁群。朝来入庭树，孤客最先闻。"},
+        {t:"秋夜寄丘二十二员外", a:"韦应物", c:"怀君属秋夜，散步咏凉天。山空松子落，幽人应未眠。"},
+        {t:"秋日", a:"耿湋", c:"返照入闾巷，忧来谁共语。古道少人行，秋风动禾黍。"},
+        {t:"秋日湖上", a:"薛莹", c:"落日五湖游，烟波处处愁。浮沉千古事，谁与问东流。"},
+        {t:"宫中题", a:"李昂", c:"辇路生秋草，上林花满枝。凭高何限意，无复侍臣知。"},
+        {t:"汾上惊秋", a:"苏颋", c:"北风吹白云，万里渡河汾。心绪逢摇落，秋声不可闻。"},
+        {t:"寻隐者不遇", a:"贾岛", c:"松下问童子，言师采药去。只在此山中，云深不知处。"},
+        {t:"蜀道后期", a:"张说", c:"客心争日月，来往预期程。秋风不相待，先至洛阳城。"},
+        {t:"静夜思", a:"李白", c:"床前明月光，疑是地上霜。举头望明月，低头思故乡。"},
+        {t:"秋浦歌", a:"李白", c:"白发三千丈，离愁似个长。不知明镜里，何处得秋霜。"},
+        {t:"赠乔侍御", a:"陈子昂", c:"汉廷荣巧宦，云阁薄边功。可怜骢马使，白首为谁雄。"},
+        {t:"答武陵太守", a:"王昌龄", c:"仗剑行千里，微躯敢一言。曾为大梁客，不负信陵恩。"},
+        {t:"行军九日思长安故园", a:"岑参", c:"强欲登高去，无人送酒来。遥怜故园菊，应傍战场开。"},
+        {t:"婕妤怨", a:"皇甫冉", c:"花枝出建章，凤管发昭阳。借问承恩者，双蛾几许长。"},
+        {t:"题竹林寺", a:"朱放", c:"岁月人间促，烟霞此地多。殷勤竹林寺，更得几回过。"},
+        {t:"三闾庙", a:"戴叔伦", c:"沅湘流不尽，屈子怨何深。日暮秋风起，萧萧枫树林。"},
+        {t:"易水送别", a:"骆宾王", c:"此地别燕丹，壮士发冲冠。昔时人已没，今日水犹寒。"},
+        {t:"别卢秦卿", a:"司空曙", c:"知有前期在，难分此夜中。无将故人酒，不及石尤风。"},
+        {t:"答人", a:"太上隐者", c:"偶来松树下，高枕石头眠。山中无历日，寒尽不知年。"}
+    ],
+    五律: [
+        {t:"幽州夜饮", a:"张说", c:"凉风吹夜雨，萧瑟动寒林。正有高堂宴，能忘迟暮心。军中宜剑舞，塞上重笳音。不作边城将，谁知恩遇深。"},
+        {t:"幸蜀西至剑门", a:"玄宗皇帝", c:"剑阁横云峻，銮舆出狩回。翠屏千仞合，丹嶂五丁开。灌木萦旗转，仙云拂马来。乘时方在德，嗟尔勒铭才。"},
+        {t:"和晋陵陆丞早春游望", a:"杜审言", c:"独有宦游人，偏惊物候新。云霞出海曙，梅柳渡江春。淑气催黄鸟，晴光转绿苹。忽闻歌古调，归思欲沾巾。"},
+        {t:"蓬莱三殿侍宴奉敕咏终南山", a:"杜审言", c:"北斗挂城边，南山倚殿前。云标金阙回，树杪玉堂悬。半岭通佳气，中峰绕瑞烟。小臣持献寿，长此戴尧天。"},
+        {t:"春夜别友人", a:"陈子昂", c:"银烛吐清烟，金尊对绮筵。离堂思琴瑟，别路绕山川。明月悬高树，长河没晓天。悠悠洛阳去，此会在何年。"},
+        {t:"长宁公主东庄侍宴", a:"李峤", c:"别业临青甸，鸣銮降紫霄。长筵鹓鹭集，仙管凤凰调。树接南山近，烟含北渚遥。承恩咸已醉，恋赏未还镳。"},
+        {t:"恩赐丽正殿书院赐宴应制得林字", a:"张说", c:"东壁图书府，西园翰墨林。诵诗闻国政，讲易见天心。位窃和羹重，恩叨醉酒深。载歌春兴曲，情竭为知音。"},
+        {t:"送友人", a:"李白", c:"青山横北郭，白水绕东城。此地一为别，孤篷万里征。浮云游子意，落日故人情。挥手自兹去，萧萧斑马鸣。"},
+        {t:"送友人下蜀", a:"李白", c:"见说蚕丛路，崎岖不易行。山从人面起，云傍马头生。芳树笼秦栈，春流绕蜀城。升沈应已定，不必问君平。"},
+        {t:"次北固山下", a:"王湾", c:"客路青山外，行舟绿水前。潮平两岸阔，风正一帆悬。海日生残夜，江春入旧年。乡书何处达，归雁洛阳边。"},
+        {t:"苏氏别业", a:"祖咏", c:"别业居幽处，到来生隐心。南山当户牖，澧水映园林。竹覆经冬雪，庭昏未夕阴。寥寥人境外，闲坐听春禽。"},
+        {t:"春宿左省", a:"杜甫", c:"花隐掖垣暮，啾啾栖鸟过。星临万户动，月傍九霄多。不寝听金钥，因风想玉坷。明朝有封事，数问夜如何。"},
+        {t:"题玄武禅师屋壁", a:"杜甫", c:"何年顾虎头，满壁画沧州。赤日石林气，青天江海流。锡飞常近鹤，杯渡不惊鸥。似得庐山路，真随惠远游。"},
+        {t:"终南山", a:"王维", c:"太乙近天都，连山到海隅。白云回望合，青霭入看无。分野中峰变，阴晴众壑殊。欲投何处宿，隔水问樵夫。"},
+        {t:"登总持阁", a:"岑参", c:"高阁逼诸天，登临近日边。晴开万井树，愁看五陵烟。槛外低秦岭，窗中小渭川。早知清净理，常愿奉金仙。"},
+        {t:"寄左省杜拾遗", a:"岑参", c:"联步趋丹陛，分曹限紫薇。晓随天仗入，暮惹御香归。白发悲花落，青云羡鸟飞。圣朝无阙事，自觉谏书稀。"},
+        {t:"登兖州城楼", a:"杜甫", c:"东郡趋庭日，南楼纵目初。浮云连海岱，平野入青徐。孤嶂秦碑在，荒城鲁殿余。从来多古意，临眺独踌躇。"},
+        {t:"送杜少府之任蜀州", a:"王勃", c:"城阙辅三秦，风烟望五津。与君离别意，同是宦游人。海内存知己，天涯若比邻。无为在歧路，儿女共沾巾。"},
+        {t:"送崔融", a:"杜审言", c:"君王行出将，书记远从征。祖帐连河阙，军麾动洛城。旌旗朝朔气，笳吹夜边声。坐觉烟尘少，秋风古北平。"},
+        {t:"扈从登封途中作", a:"宋之问", c:"帐殿郁崔嵬，仙游实壮哉。晓云连幕卷，夜火杂星回。谷暗千旗出，山鸣万乘来。扈从良可赋，终乏掞天才。"},
+        {t:"题义公禅房", a:"孟浩然", c:"义公习禅寂，结宇依空林。户外一峰秀，阶前众壑深。夕阳连雨足，空翠落庭阴。看取莲花净，方知不染心。"},
+        {t:"醉后赠张九旭", a:"高适", c:"世上漫相识，此翁殊不然。兴来书自圣，醉后语尤颠。白发老闲事，青云在目前。床头一壶酒，能更几回眠。"},
+        {t:"玉台观", a:"高适", c:"浩劫因王造，平台访古游。彩云萧史驻，文字鲁恭留。宫阙通群帝，乾坤到十洲。人传有笙鹤，时过北山头。"},
+        {t:"观李固请司马弟山水图", a:"杜甫", c:"方丈浑连水，天台总映云。人间长见画，老去限空闻。范蠡舟偏小，王乔鹤不群。此生随万物，何处出尘氛。"},
+        {t:"旅夜书怀", a:"杜甫", c:"细草微风岸，危樯独夜舟。星随平野阔，月涌大江流。名岂文章著，官因老病休。飘飘何所似，天地一沙鸥。"},
+        {t:"登岳阳楼", a:"杜甫", c:"昔闻洞庭水，今上岳阳楼。吴楚东南坼，乾坤日月浮。亲朋无一字，老病有孤舟。戎马关山北，凭轩涕泗流。"},
+        {t:"江南旅情", a:"祖咏", c:"楚山不可极，归路但萧条。海色晴看雨，江声夜听潮。剑留南斗近，书寄北风遥。为报空潭橘，无媒寄洛桥。"},
+        {t:"宿龙兴寺", a:"綦毋潜", c:"香刹夜忘归，松清古殿扉。灯明方丈室，珠系比丘衣。白日传心净，青莲喻法微。天花落不尽，处处鸟衔飞。"},
+        {t:"破山寺后禅院", a:"常建", c:"清晨入古寺，初日照高林。曲径通幽处，禅房花木深。山光悦鸟性，潭影空人心。万籁此俱寂，惟闻钟磬音。"},
+        {t:"题松汀驿", a:"张佑", c:"山色远含空，苍茫泽国东。海明先见日，江白迥闻风。鸟道高原去，人烟小径通。那知旧遗逸，不在五湖中。"},
+        {t:"圣果寺", a:"释处默", c:"路自中峰上，盘回出薜萝。到江吴地尽，隔岸越山多。古木丛青蔼，遥天浸白波。下方城郭近，钟磬杂笙歌。"},
+        {t:"野望", a:"王绩", c:"东皋薄暮望，徙倚欲何依。树树皆秋色，山山惟落晖。牧人驱犊返，猎马带禽归。相顾无相识，长歌怀采薇。"},
+        {t:"送别崔著作东征", a:"陈子昂", c:"金天方肃杀，白露始专征。王师非乐战，之子送佳兵。海气侵南部，边风扫北平。莫卖卢龙塞，归邀麟阁名。"},
+        {t:"陪诸公子丈八沟纳凉晚际遇雨", a:"杜甫", c:"落日放船好，轻风生浪迟。竹深留客处，荷净纳凉时。公子调冰水，佳人雪藕丝。片云头上黑，应是雨催诗。雨来沾席上，风急打船头。越女红裙湿，燕姬翠黛愁。缆侵堤柳系，幔卷浪花浮。归路翻萧飒，陂塘五月秋。"},
+        {t:"宿云门寺阁", a:"孙逖", c:"香阁东山下，烟花象外幽。悬灯千嶂夕，卷幔五湖秋。画壁余鸿雁，纱窗宿斗牛。更疑天路近，梦与白云游。"},
+        {t:"秋登宣城谢眺北楼", a:"李白", c:"江城如画里，山晓望晴空。两水夹明镜，双桥落彩虹。人烟寒橘柚，秋色老梧桐。谁念北楼上，临风怀谢公。"},
+        {t:"临洞庭", a:"孟浩然", c:"八月湖水平，涵虚混太清。气蒸云梦泽，波撼岳阳城。欲济无舟楫，端居耻圣明。坐观垂钓者，徒有羡鱼情。"},
+        {t:"过香积寺", a:"王维", c:"不知香积寺，数里入云峰。古木无人径，深山何处钟泉声咽危石，日色冷青松。薄暮空潭曲，安禅制毒龙。"},
+        {t:"送郑侍御谪闽中", a:"高适", c:"谪去君无恨，闽中我旧过。大都秋雁少，只是夜猿多。东路云山合，南天瘴疠和。自当逢雨露，行矣顺风波。"},
+        {t:"秦州杂诗", a:"杜甫", c:"凤林戈未息，鱼海路常难。候火云峰峻，悬军幕井乾。风连西极动，月过北庭寒。故老思飞将，何时议筑坛。"},
+        {t:"禹庙", a:"杜甫", c:"禹庙空山里，秋风落日斜。荒庭垂橘柚，古屋画龙蛇。云气生虚壁，江深走白沙。早知乘四载，疏凿控三巴。"},
+        {t:"望秦川", a:"李颀", c:"秦川朝望迥，日出正东峰。远近山河净，逶迤城阙重。秋声万户竹，寒色五陵松。有客归欤叹，凄其霜露浓。"},
+        {t:"同王徵君洞庭有怀", a:"张谓", c:"八月洞庭秋，潇湘水北流。还家万里梦，为客五更愁。不用开书帙，偏宜上酒楼。故人京洛满，何日复同游。"},
+        {t:"渡扬子江", a:"丁仙芝", c:"桂楫中流望，空波两岸明。林开扬子驿，山出润州城。海尽边阴静，江寒朔吹生。更闻枫叶下，淅沥度秋声。"},
+        {t:"幽州夜歌", a:"张说", c:"凉风吹夜雨，萧瑟动寒林。正有高堂宴，能忘迟暮心。军中宜剑舞，塞上重笳音。不作边城将，谁知恩遇深。"}
+    ],
+    七绝: [
+        {t:"春日偶成", a:"程颢", c:"云淡风轻近午天，傍花随柳过前川。时人不识余心乐，将谓偷闲学少年。"},
+        {t:"春日", a:"朱熹", c:"胜日寻芳泗水滨，无边光景一时新。等闲识得东风面，万紫千红总是春。"},
+        {t:"春宵", a:"苏轼", c:"春宵一刻值千金，花有清香月有阴。歌管楼台声细细，秋千院落夜沉沉。"},
+        {t:"城东早春", a:"杨巨源", c:"诗家清景在新春，绿柳才黄半未匀。若待上林花似锦，出门俱是看花人。"},
+        {t:"春夜", a:"王安石", c:"金炉香尽漏声残，剪剪轻风阵阵寒。春色恼人眠不得，月移花影上栏杆。"},
+        {t:"初春小雨", a:"韩愈", c:"天街小雨润如酥，草色遥看近却无。最是一年春好处，绝胜烟柳满皇都。"},
+        {t:"元日", a:"王安石", c:"爆竹声中一岁除，春风送暖入屠苏。千门万户曈曈日，总把新桃换旧符。"},
+        {t:"上元侍宴", a:"苏轼", c:"淡月疏星绕建章，仙风吹下御炉香。侍臣鹄立通明殿，一朵红云捧玉皇。"},
+        {t:"立春偶成", a:"张栻", c:"律回岁晚冰霜少，春到人间草木知。便觉眼前生意满，东风吹水绿参差。"},
+        {t:"打球图", a:"晁说之", c:"阊阖千门万户开，三郎沈醉打球回。九龄已老韩休死，无复明朝谏疏来。"},
+        {t:"宫词", a:"王建", c:"金殿当头紫阁重，仙人掌上玉芙蓉。太平天子朝元日，五色云车驾六龙。"},
+        {t:"廷试", a:"夏竦", c:"殿上衮衣明日月，砚中旗影动龙蛇。纵横礼乐三千字，独对丹墀日未斜。"},
+        {t:"咏华清宫", a:"杜常", c:"行尽江南数十程，晓风残月入华清。朝元阁上西风急，都入长杨作雨声。"},
+        {t:"清平调词", a:"李白", c:"云想衣裳花想容，春风拂槛露华浓。若非群玉山头见，会向瑶台月下逢。"},
+        {t:"题邸间壁", a:"郑谷", c:"酴醾香梦怯春寒，翠掩重门燕子闲。敲断玉钗红烛冷，计程应说到常山。"},
+        {t:"绝句", a:"杜甫", c:"两个黄鹂鸣翠柳，一行白鹭上青天。窗含西岭千秋雪，门泊东吴万里船"},
+        {t:"海棠", a:"苏轼", c:"东风袅袅泛崇光，香雾空蒙月转廊。只恐夜深花睡去，故烧高烛照红妆"},
+        {t:"清明", a:"王禹偁", c:"无花无酒过清明，兴味萧然似野僧。昨日邻家乞新火，晓窗分与读书灯。"},
+        {t:"清明", a:"杜牧", c:"清明时节雨纷纷，路上行人欲断魂。借问酒家何处有，牧童遥指杏花村。"},
+        {t:"社日", a:"王驾", c:"鹅湖山下稻粱肥，豚栅鸡栖对掩扉。桑柘影斜春社散，家家扶得醉人归"},
+        {t:"寒食", a:"韩翃", c:"春城无处不飞花，寒食东风御柳斜。日暮汉宫传蜡烛，轻烟散入五侯家。"},
+        {t:"江南春", a:"杜牧", c:"千里莺啼绿映红，水村山郭酒旗风。南朝四百八十寺，多少楼台烟雨中。"},
+        {t:"上高侍郎", a:"高蟾", c:"天上碧桃和露种，日边红杏倚云栽。芙蓉生在秋江上，不向东风怨未开。"},
+        {t:"绝句", a:"僧志南", c:"古木阴中系短篷，杖藜扶我过桥东。沾衣欲湿杏花雨，吹面不寒杨柳风。"},
+        {t:"游园不值", a:"叶绍翁", c:"应嫌屐齿印苍苔，十扣柴扉九不开。春色满园关不住，一枝红杏出墙来。"},
+        {t:"客中行", a:"李白", c:"兰陵美酒郁金香，玉碗盛来琥珀光。但使主人能醉客，不知何处是他乡。"},
+        {t:"题屏", a:"刘季孙", c:"呢喃燕子语梁间，底事来惊梦里闲。说与旁人浑不解，杖藜携酒看芝山。"},
+        {t:"庆全庵桃花", a:"谢枋得", c:"寻得桃源好避秦，桃红又是一年春。花飞莫遣随流水，怕有渔郎来问津。"},
+        {t:"玄都观桃花", a:"刘禹锡", c:"紫陌红尘拂面来，无人不道看花回。玄都观里桃千树，尽是刘郎去后栽。"},
+        {t:"再游玄都观", a:"刘禹锡", c:"百亩庭中半是苔，桃花净尽菜花开。种桃道士归何处，前度刘郎今又来。"},
+        {t:"滁州西涧", a:"韦应物", c:"独怜幽草涧边生，上有黄鹂深树鸣。春潮带雨晚来急，野渡无人舟自横。"},
+        {t:"花影", a:"苏轼", c:"重重叠叠上瑶台，几度呼童扫不开。刚被太阳收拾去，却教明月送将来。"},
+        {t:"北山", a:"王安石", c:"北山输绿涨横陂，直堑回塘滟滟时。细数落花因坐久，缓寻芳草得归迟。"},
+        {t:"湖上", a:"徐元杰", c:"花开红树乱莺啼，草长平湖白鹭飞。风日晴和人意好，夕阳箫鼓几船归。"},
+        {t:"漫兴", a:"杜甫", c:"糁径杨花铺白毡，点溪荷叶叠青钱。笋根稚子无人见，沙上凫雏傍母眠。"},
+        {t:"春晴", a:"王驾", c:"雨前初见花间蕊，雨后全无叶底花。蜂蝶纷纷过墙去，却疑春色在邻家。"},
+        {t:"春暮", a:"曹豳", c:"门外无人问落花，绿阴冉冉遍天涯。林莺啼到无声处，青草池塘独听蛙。"},
+        {t:"落花", a:"朱淑贞", c:"连理枝头花正开，妒花风雨便相催。愿教青帝常为主，莫遣纷纷点翠苔。"},
+        {t:"春暮游小园", a:"王淇", c:"一从梅粉褪残妆，涂抹新红上海棠。开到荼蘼花事了，丝丝天棘出莓墙。"},
+        {t:"莺梭", a:"刘克庄", c:"掷柳迁乔太有情，交交时作弄机声。洛阳三月花如锦，多少工夫织得成。"},
+        {t:"暮春即事", a:"叶采", c:"双双瓦雀行书案，点点杨花入砚池。闲坐小窗读周易，不知春去几多时。"},
+        {t:"登山", a:"李涉", c:"终日昏昏醉梦间，忽闻春尽强登山。因过竹院逢僧话，又得浮生半日闲。"},
+        {t:"蚕妇吟", a:"谢枋得", c:"子规啼彻四更时，起视蚕稠怕叶稀。不信楼头杨柳月，玉人歌舞未曾归。"},
+        {t:"晚春", a:"韩愈", c:"草木知春不久归，百般红紫斗芳菲。杨花榆荚无才思，惟解漫天作雪飞。"},
+        {t:"伤春", a:"杨万里", c:"准拟今春乐事浓，依然枉却一东风。年年不带看花眼，不是愁中即病中。"},
+        {t:"送春", a:"王令", c:"三月残花落更开，小檐日日燕飞来。子规夜半犹啼血，不信东风唤不回。"},
+        {t:"三月晦日送春", a:"贾岛", c:"三月正当三十日，风光别我苦吟身。共君今夜不须睡，未到晓钟犹是春。"},
+        {t:"客中初夏", a:"司马光", c:"四月清和雨乍晴，南山当户转分明。更无柳絮因风起，惟有葵花向日倾。"},
+        {t:"约客", a:"赵师秀", c:"黄梅时节家家雨，青草池塘处处蛙。有约不来过夜半，闲敲棋子落灯花。"},
+        {t:"初夏睡起", a:"杨万里", c:"梅子流酸溅齿牙，芭蕉分绿上窗纱。日长睡起无情思，闲看儿童捉柳花。"},
+        {t:"三衢道中", a:"曾几", c:"梅子黄时日日晴，小溪泛尽却山行。绿阴不减来时路，添得黄鹂四五声。"},
+        {t:"即景", a:"朱淑贞", c:"竹摇清影罩幽窗，两两时禽噪夕阳。谢却海棠飞尽絮，困人天气日初长。"},
+        {t:"初夏游张园", a:"戴复古", c:"乳鸭池塘水浅深，熟梅天气半晴阴。东园载酒西园醉，摘尽枇杷一树金。"},
+        {t:"鄂州南楼书事", a:"黄庭坚", c:"四顾山光接水光，凭栏十里芰荷香。清风明月无人管，并作南来一味凉。"},
+        {t:"山亭夏日", a:"高骈", c:"绿树阴浓夏日长，楼台倒影入池塘。水晶帘动微风起，满架蔷薇一院香。"},
+        {t:"四时田园杂兴", a:"范成大", c:"昼出耘田夜绩麻，村庄儿女各当家。童孙未解供耕织，也傍桑阴学种瓜。"},
+        {t:"乡村四月", a:"翁卷", c:"绿遍山原白满川，子规声里雨如烟。乡村四月闲人少，才了蚕桑又插田"},
+        {t:"题榴花", a:"韩愈", c:"五月榴花照眼明，枝间时见子初成。可怜此地无车马，颠倒苍苔落绛英。"},
+        {t:"村晚", a:"雷震", c:"草满池塘水满陂，山衔落日浸寒漪。牧童归去横牛背，短笛无腔信口吹。"},
+        {t:"书湖阴先生壁", a:"王安石", c:"茅檐常扫净无苔，花木成蹊手自栽。一水护田将绿绕，两山排闼送青来。"},
+        {t:"乌衣巷", a:"刘禹锡", c:"朱雀桥边野草花，乌衣巷口夕阳斜。旧时王谢堂前燕，飞入寻常百姓家。"},
+        {t:"送元二使安西", a:"王维", c:"渭城朝雨浥轻尘，客舍青青柳色新。劝君更尽一杯酒，西出阳关无故人。"},
+        {t:"与史郎中钦听黄鹤楼上吹笛", a:"李白", c:"一为迁客去长沙，西望长安不见家。黄鹤楼中吹玉笛，江城五月落梅花。"},
+        {t:"题淮南寺", a:"程颢", c:"南去北来休便休，白苹吹尽楚江秋。道人不是悲秋客，一任晚山相对愁。"},
+        {t:"秋月", a:"程颢", c:"清溪流过碧山头，空水澄鲜一色秋。隔断红尘三十里，白云红叶雨悠悠。"},
+        {t:"七夕", a:"杨朴", c:"未会牵牛意若何，须邀织女弄金梭。年年乞与人间巧，不道人间巧几多。"},
+        {t:"立秋", a:"刘翰", c:"乳鸦啼散玉屏空，一枕新凉一扇风。睡起秋声无觅处，满阶梧叶月明中。"},
+        {t:"七夕", a:"杜牧", c:"银烛秋光冷画屏，轻罗小扇扑流萤。天街夜色凉如水，卧看牵牛织女星。"},
+        {t:"中秋月", a:"苏轼", c:"暮云收尽溢清寒，银汉无声转玉盘。此生此夜不长好，明月明年何处看。"},
+        {t:"江楼有感", a:"赵嘏", c:"独上江楼思悄然，月光如水水如天。同来玩月人何在，风景依稀似去年。"},
+        {t:"题临安邸", a:"林升", c:"山外青山楼外楼，西湖歌舞几时休。暖风薰得游人醉，直把杭州作汴州。"},
+        {t:"晓出净慈送林子方", a:"杨万里", c:"毕竟西湖六月中，风光不与四时同。接天莲叶无穷碧，映日荷花别样红。"},
+        {t:"饮湖上初晴后雨", a:"苏轼", c:"水光潋滟晴方好，山色空蒙雨亦奇。欲把西湖比西子，淡妆浓抹总相宜。"},
+        {t:"入直", a:"周必大", c:"绿槐夹道集昏鸦，敕使传宣坐赐茶。归到玉堂清不寐，月钩初上紫薇花。"},
+        {t:"夏日登车盖亭", a:"蔡确", c:"纸屏石枕竹方床，手倦抛书午梦长。睡起莞然成独笑，数声渔笛在沧浪。"},
+        {t:"直玉堂作", a:"洪咨夔", c:"禁门深锁寂无哗，浓墨淋漓两相麻。唱彻五更天未晓，一墀月浸紫薇花。"},
+        {t:"竹楼", a:"李嘉佑", c:"傲吏身闲笑五侯，西江取竹起高楼。南风不用蒲葵扇，纱帽闲眠对水鸥。"},
+        {t:"直中书省", a:"白居易", c:"丝纶阁下文章静，钟鼓楼中刻漏长。独坐黄昏谁是伴，紫薇花对紫薇郎。"},
+        {t:"观书有感", a:"朱熹", c:"半亩方塘一鉴开，天光云影共徘徊。问渠那得清如许，为有源头活水来。"},
+        {t:"泛舟", a:"朱熹", c:"昨夜江边春水生，艨艟巨舰一毛轻。向来枉费推移力，此日中流自在行。"},
+        {t:"冷泉", a:"林稹", c:"一泓清可沁诗脾，冷暖年来只自知。流出西湖载歌舞，回头不似在山时。"},
+        {t:"赠刘景文", a:"苏轼", c:"荷尽已无擎雨盖，菊残犹有傲霜枝。一年好景君须记，最是橙黄橘绿时。"},
+        {t:"枫桥夜泊", a:"张继", c:"月落乌啼霜满天，江枫渔火对愁眠。姑苏城外寒山寺，夜半钟声到客船。"},
+        {t:"寒夜", a:"杜耒", c:"寒夜客来茶当酒，竹炉汤沸火初红。寻常一样窗前月，才有梅花便不同。"},
+        {t:"霜月", a:"李商隐", c:"初闻征雁已无蝉，百尺楼台水接天。青女素娥俱耐冷，月中霜里斗婵娟。"},
+        {t:"梅", a:"王淇", c:"不受尘埃半点侵，竹篱茅舍自甘心。只因误识林和靖，惹得诗人说到今。"},
+        {t:"早春", a:"白玉蟾", c:"南枝才放两三花，雪里吟香弄粉些。淡淡著烟浓著月，深深笼水浅笼沙。"},
+        {t:"雪梅（其一）", a:"卢梅坡", c:"梅雪争春未肯降，骚人阁笔费评章。梅须逊雪三分白，雪却输梅一段香。"},
+        {t:"雪梅（其二）", a:"卢梅坡", c:"有梅无雪不精神，有雪无诗俗了人。日暮诗成天又雪，与梅井作十分春。"},
+        {t:"答钟弱翁", a:"牧童", c:"草铺横野六七里，笛弄晚风三四声。归来饱饭黄昏后，不脱蓑衣卧月明。"},
+        {t:"泊秦淮", a:"杜牧", c:"烟笼寒水月笼沙，夜泊秦淮近酒家。商女不知亡国恨，隔江犹唱后庭花。"},
+        {t:"归雁", a:"钱起", c:"潇湘何事等闲回，水碧沙明两岸苔。二十五弦弹夜月，不胜清怨却飞来。"},
+        {t:"题壁", a:"无名氏", c:"一团茅草乱蓬蓬，蓦地烧天蓦地空。争似满炉煨榾柮，漫腾腾地暖烘烘。"}
+    ],
+    七律: [
+        {t:"早朝大明宫", a:"贾至", c:"银烛朝天紫陌长，禁城春色晓苍苍。千条弱柳垂青锁，百啭流莺绕建章。剑佩声随玉墀步，衣冠身惹御炉香。共沐恩波凤池上，朝朝染翰侍君王。"},
+        {t:"和贾舍人早朝", a:"杜甫", c:"五夜漏声催晓箭，九重春色醉仙桃。旌旗日暖龙蛇动，宫殿风微燕雀高。朝罢香烟携满袖，诗成珠玉在挥毫。欲知世掌丝纶美，池上于今有凤毛。"},
+        {t:"和贾舍人早朝", a:"王维", c:"绛帻鸡人报晓筹，尚衣方进翠云裘。九天阊阖开宫殿，万国衣冠拜冕旒。日色才临仙掌动，香烟欲傍衮龙浮。朝罢须裁五色诏，佩声归到凤池头。"},
+        {t:"和贾舍人早朝", a:"岑参", c:"鸡鸣紫陌曙光寒，莺啭皇州春色阑。金阙晓钟开万户，玉阶仙仗拥千官。花迎剑佩星初落，柳拂旌旗露未乾。独有凤凰池上客，阳春一曲和皆难。"},
+        {t:"上元应制", a:"蔡襄", c:"高列千峰宝炬森，端门方喜翠华临。宸游不为三元夜，乐事还同万众心。天上清光留此夕，人间和气阁春阴。要知尽庆华封祝，四十余年惠爱深。"},
+        {t:"上元应制", a:"王珪", c:"雪消华月满仙台，万烛当楼宝扇开。双凤云中扶辇下，六鳌海上驾山来。镐京春酒沾周宴，汾水秋风陋汉才。一曲升平人尽乐，君王又进紫霞杯。"},
+        {t:"侍宴", a:"沈佺期", c:"皇家贵主好神仙，别业初开云汉边。山出尽如鸣凤岭，池成不让饮龙川。妆楼翠幌教春住，舞阁金铺借日悬。侍从乘舆来此地，称觞献寿乐钧天。"},
+        {t:"戏答元珍", a:"欧阳修", c:"春风疑不到天涯，二月山城未见花。残雪压枝犹有橘，冻雷惊笋欲抽芽。夜闻啼雁生乡思，病入新年感物华。曾是洛阳花下客，野芳虽晚不须嗟。"},
+        {t:"插花吟", a:"邵雍", c:"头上花枝照酒卮，酒卮中有好花枝。身经两世太平日，眼见四朝全盛时。况复筋骸粗康健，那堪时节正芳菲。酒涵花影红光溜，争忍花前不醉归。"},
+        {t:"寓意", a:"晏殊", c:"油壁香车不再逢，峡云无迹任西东。梨花院落溶溶月，柳絮池塘淡淡风。几日寂寥伤酒后，一番萧瑟禁烟中。鱼书欲寄何由达，水远山长处处同。"},
+        {t:"寒食书事", a:"赵鼎", c:"寂寂柴门村落里，也教插柳纪年华。禁烟不到粤人国，上冢亦携庞老家。汉寝唐陵无麦饭，山溪野径有梨花。一樽竟藉青苔卧，莫管城头奏暮笳。"},
+        {t:"清明", a:"黄庭坚", c:"佳节清明桃李笑，野田荒冢只生愁。雷惊天地龙蛇蛰，雨足郊原草木柔。人乞祭余骄妾妇，士甘焚死不公侯。贤愚千载知谁是，满眼蓬蒿共一丘。"},
+        {t:"清明日对酒", a:"高翥", c:"南北山头多墓田，清明祭扫各纷然。纸灰飞作白蝴蝶，泪血染成红杜鹃。日落狐狸眠冢上，夜归儿女笑灯前。人生有酒须当醉，一滴何曾到九泉。"},
+        {t:"郊行即事", a:"程颢", c:"芳原绿野恣行时，春入遥山碧四围。兴逐乱红穿柳巷，困临流水坐苔矶。莫辞盏酒十分劝，只恐风花一片飞。况是清明好天气，不妨游衍莫忘归。"},
+        {t:"秋千", a:"僧惠洪", c:"画架双裁翠络偏，佳人春戏小楼前。飘扬血色裙拖地，断送玉容人上天。花皮润沾红杏雨，彩绳斜挂绿杨烟。下来闲处从容立，疑是蟾宫谪神仙。"},
+        {t:"曲江（其一）", a:"杜甫", c:"一片花飞减却春，风飘万点正愁人。且看欲尽花经眼，莫厌伤多酒入唇。江上小堂巢翡翠，苑边高冢卧麒麟。细推物理须行乐，何用浮名绊此身。"},
+        {t:"曲江（其二）", a:"杜甫", c:"朝回日日典春衣，每日江头尽醉归。酒债寻常行处有，人生七十古来稀。穿花蛱蝶深深见，点水蜻蜓款款飞。传与风光共流转，暂时相赏莫相违。"},
+        {t:"黄鹤楼", a:"崔颢", c:"昔人已乘白云去，此地空余黄鹤楼。黄鹤一去不复返，白云千载空悠悠。晴川历历汉阳树，芳草萋萋鹦鹉州。日暮乡关何处是，烟波江上使人愁。"},
+        {t:"旅怀", a:"崔涂", c:"水流花谢两无情，送尽东风过楚城。蝴蝶梦中家万里，杜鹃枝上月三更。故园书动经年绝，华发春催两鬓生。自是不归归便得，五湖烟景有谁争。"},
+        {t:"答李儋无锡", a:"韦应物", c:"去年花里逢君别，今日花开又一年。世事茫茫难自料，春愁黯黯独成眠。身多疾病思田里，邑有流亡愧俸钱。闻道欲来相问讯，西楼望月几回圆。"},
+        {t:"江村", a:"杜甫", c:"清江一曲抱村流，长夏江村事事幽。自去自来梁上燕，相亲相近水中鸥。老妻画纸为棋局，稚子敲针作钓钩。多病所须惟药物，微躯此外更何求。"},
+        {t:"夏日", a:"张耒", c:"长夏江村风日清，檐牙燕雀已生成。蝶衣晒粉花枝午，蛛网添丝屋角晴。落落疏廉邀月影，嘈嘈虚枕纳溪声。久斑两鬓如霜雪，直欲樵渔过此生。"},
+        {t:"辋川夜雨", a:"王维", c:"积雨空林烟火迟，蒸藜炊黍饷东菑。漠漠水田飞白鹭，阴阴夏木啭黄鹂。山中习静合朝槿，松下清斋折露葵。野老与人争席罢，海鸥何事更相疑。"},
+        {t:"新竹", a:"陆游", c:"插棘编篱谨护持，养成寒碧映涟漪。清风掠地秋先到，赤日行天午不知。解箨时闻声簌簌，放梢初见影离离。归闲我欲频来此，枕簟仍教到处随。"},
+        {t:"偶成", a:"程颢", c:"闲来无事不从容，睡觉东窗日已红。万物静观皆自得，四时佳兴与人同。道通天地有形外，思入风云变态中。富贵不淫贫贱乐，男儿到此是豪雄。"},
+        {t:"表兄话旧", a:"窦叔向", c:"夜合花开香满庭，夜深微雨醉初醒。远书珍重何由达，旧事凄凉不可听。去日儿童皆长大，昔年亲友半凋零。明朝又是孤舟别，愁见河桥酒幔青。"},
+        {t:"游月陂", a:"程颢", c:"月坡堤上四徘徊，北有中天百尺台。万物已随秋气改，一樽聊为晚凉开。水心云影闲相照，林下泉声静自来。世事无端何足计，但逢佳节约重陪。"},
+        {t:"秋兴（其一）", a:"杜甫", c:"玉露凋伤枫树林，巫山巫峡气萧森。江间波浪兼天涌，塞上风云接地阴。丛菊两开他日泪，孤舟一系故园心。寒衣处处催刀尺，白帝城高急暮砧。"},
+        {t:"秋兴（其三）", a:"杜甫", c:"千家山郭静朝晖，日日江楼坐翠微。信宿渔人还泛泛，清秋燕子故飞飞。匡衡抗疏功名薄，刘向传经心事违。同学少年多不贱，五陵裘马自轻肥。"},
+        {t:"秋兴（其五）", a:"杜甫", c:"蓬莱宫阙对南山，承露金茎霄汉间。西望瑶池降王母，东来紫气满函关。云移雉尾开宫扇，日绕龙鳞识圣颜。一卧沧江惊岁晚，几回青琐点朝班。"},
+        {t:"秋兴（其七）", a:"杜甫", c:"昆明池水汉时功，武帝旌旗在眼中。织女机丝虚夜月，石鲸鳞甲动秋风。波飘菰米沉云黑，露冷莲房坠粉红。关塞极天惟鸟道，江湖满地一渔翁。"},
+        {t:"月夜舟中", a:"戴复古", c:"满船明月浸虚空，绿水无痕夜气冲。诗思浮沈樯影里，梦魂摇拽橹声中。星辰冷落碧潭水，鸿雁悲鸣红蓼风。数点渔灯依古岸，断桥垂露滴梧桐。"},
+        {t:"长安秋望", a:"赵嘏", c:"云物凄凉拂署流，汉家宫阙动高秋。残星几点雁横塞，长笛一声人倚楼。紫艳半开篱菊静，红衣落尽渚莲愁。鲈鱼正美不归去，空戴南冠学楚囚。"},
+        {t:"新秋", a:"杜甫", c:"火云犹未敛奇峰，欹枕初惊一叶风。几处园林萧瑟里，谁家砧杵寂寥中。蝉声断续悲残月，萤焰高低照暮空。赋就金门期再献，夜深搔首叹飞蓬。"},
+        {t:"中秋", a:"李朴", c:"皓魄当空宝镜升，云间仙籁寂无声。平分秋色一轮满，长伴云衢千里明。狡兔空从弦外落，妖蟆休向眼前生。灵槎拟约同携手，更待银河澈底清。"},
+        {t:"九日蓝田会饮", a:"杜甫", c:"老去悲秋强自宽，兴来今日尽君欢。羞将短发还吹帽，笑倩旁人为正冠。蓝水远从千涧落，玉山高并两峰寒。明年此会知谁健，醉把茱萸仔细看。"},
+        {t:"秋思", a:"陆游", c:"利欲驱人万火牛，江湖浪迹一沙鸥。日长似岁闲方觉，事大如天醉亦休。砧杵敲残深巷月，梧桐摇落故园秋。欲舒老眼无高处，安得元龙百尺楼。"},
+        {t:"与朱山人", a:"杜甫", c:"锦里先生乌角巾，园收芋栗未全贫。惯看宾客儿童喜，得食阶除鸟雀驯。秋水才深四五尺，野航恰受两三人。白沙翠竹江村暮，相送柴门月色新。"},
+        {t:"闻笛", a:"赵嘏", c:"谁家吹笛画楼中，断续声随断续风。响遏行云横碧落，清和冷月到帘栊。兴来三弄有桓子，赋就一篇怀马融。曲罢不知人在否，余音嘹亮尚飘空。"},
+        {t:"冬景", a:"刘克庄", c:"晴窗早觉爱朝曦，竹外秋声渐作威。命仆安排新暖阁，呼童熨贴旧寒衣。叶浮嫩绿酒初熟，橙切香黄蟹正肥。蓉菊满园皆可羡，赏心从此莫相违。"},
+        {t:"小至", a:"杜甫", c:"天时人事日相催，冬至阳生春又来。刺绣五纹添弱线，吹葭六管动飞灰。岸容待腊将舒柳，山意冲寒欲放梅。云物不殊乡国异，教儿且覆掌中杯。"},
+        {t:"山园小梅", a:"林逋", c:"众芳摇落独鲜妍，占断风情向小园。疏影横斜水清浅，暗香浮动月黄昏。霜禽欲下先偷眼，粉蝶如知合断魂。幸有微吟可相狎，不须檀板共金樽。"},
+        {t:"自咏", a:"韩愈", c:"一封朝奏九重天，夕贬潮阳路八千。本为圣朝除弊政，敢将衰朽惜残年。云横秦岭家何在，雪拥蓝关马不前。知汝远来应有意，好收吾骨瘴江边。"},
+        {t:"干戈", a:"王中", c:"干戈未定欲何之，一事无成两鬓丝。踪迹大纲王粲传，情怀小样杜陵诗。鹡鸰音断人千里，乌鹊巢寒月一枝。安得中山千日酒，酩然直到太平时。"},
+        {t:"归隐", a:"陈抟", c:"十年踪迹走红尘，回首青山入梦频。紫绶纵荣争及睡，朱门虽富不如贫。愁闻剑戟扶危主，闷听笙歌聒醉人。携取旧书归旧隐，野花啼鸟一般春。"},
+        {t:"时世行赠田妇", a:"杜荀鹤", c:"夫因兵乱守蓬茅，麻苎裙衫鬓发焦。桑柘废来犹纳税，田园荒尽尚徵苗。时挑野菜和根煮，旋砍生柴带叶烧。任是深山最深处，也应无计避征徭。"},
+        {t:"送天师", a:"朱权", c:"霜落芝城柳影疏，殷勤送客出鄱湖。黄金甲锁雷霆印，红锦韬缠日月符。天上晓行骑只鹤，人间夜宿解双凫。匆匆归到神仙府，为问蟠桃熟也无。"},
+        {t:"送毛伯温", a:"朱厚熜", c:"大将南征胆气豪，腰横秋水雁翎刀。风吹鼍鼓山河动，电闪旌旗日月高。天上麒麟原有种，穴中蝼蚁岂能逃。太平待诏归来日，朕与先生解战袍。"}
+    ],
+};
+
+
+// 数据状态
+let charsData = JSON.parse(localStorage.getItem('charsData')) || {};
+let currentQuizList = [];
+let originalQuizList = []; // 保存最开始的乱序列表，便于再测一次
+let currentIdx = 0;
+let quizResult = { correct: 0, wrong: 0 };
+let isReviewMode = false;
+let quizStartTime = 0; // 新增：记录测试开始时间
+let lastTestedSeq = 0; // 单调递增计数器，保证每次答题/创建的时间标记严格递增
+function nextTestedTime() {
+    const now = Date.now();
+    lastTestedSeq = (now > lastTestedSeq) ? now : lastTestedSeq + 1;
+    return lastTestedSeq;
+}
+// 初始化单调递增计数器：取已有数据中最大的 lastTested，确保新序号始终更大
+(function() {
+    let maxSeq = 0;
+    for (const c in charsData) {
+        const t = Number(charsData[c].lastTested) || 0;
+        if (t > maxSeq) maxSeq = t;
+    }
+    if (maxSeq > lastTestedSeq) lastTestedSeq = maxSeq;
+})();
+
+// 测试/复习记录（1.1.1 新增）
+let quizHistory = JSON.parse(localStorage.getItem('quizHistory')) || [];
+let pendingImportHistory = [];
+
+// 自定义汉字组（用户新建的常用汉字组）
+let customGroups = JSON.parse(localStorage.getItem('customGroups')) || {};
+
+// ========== 账号与多设备同步（1.1.2 新增）==========
+let authToken = localStorage.getItem('authToken') || '';
+let authUsername = localStorage.getItem('authUsername') || '';
+// 自动检测服务器地址：如果通过服务器访问页面，默认用当前地址；否则用 localhost
+let SERVER_URL = (location.protocol.startsWith('http') && location.port === '3001')
+    ? location.origin
+    : (localStorage.getItem('serverUrl') || 'http://localhost:3001');
+let authMode = 'login'; // login 或 register
+let isSyncing = false;
+let editingGroupId = null; // 当前正在编辑的汉字组 id，null 表示新建
+var APP_VERSION = '1.1.3'; // 当前前端版本（与 version.json 对比）
+var versionCheckTimer = null;
+
+// DOM元素缓存
+const DOMElements = {
+    pages: document.querySelectorAll('.page'),
+    navBtns: document.querySelectorAll('.nav-btn'),
+    
+    // Home
+    charInput: document.getElementById('char-input'),
+    btnStartQuiz: document.getElementById('btn-start-quiz'),
+    btnReviewSpecific: document.getElementById('btn-review-specific'),
+    btnAutoRecommend: document.getElementById('btn-auto-recommend'), // 新增
+    btnLoadPreset: document.getElementById('btn-load-preset'),
+    presetPanel: document.getElementById('preset-panel'),
+    presetBtns: document.querySelectorAll('.preset-btn'),
+    poemSelector: document.getElementById('poem-selector'),
+    poemSelect: document.getElementById('poem-select'),
+    poemPrev: document.getElementById('poem-prev'),
+    poemNext: document.getElementById('poem-next'),
+    poemCounter: document.getElementById('poem-counter'),
+    
+    // Quiz & Review
+    quizProgress: document.getElementById('quiz-progress'),
+    quizProgressText: document.getElementById('quiz-progress-text'),
+    charDisplay: document.getElementById('char-display'),
+    charDisplayArea: document.getElementById('char-display-area'),
+    charCorrectCount: document.getElementById('char-correct-count'),
+    charWrongCount: document.getElementById('char-wrong-count'),
+    btnCorrect: document.getElementById('btn-correct'),
+    btnWrong: document.getElementById('btn-wrong'),
+    btnQuizPrev: document.getElementById('btn-quiz-prev'),
+    btnQuizNext: document.getElementById('btn-quiz-next'),
+
+    revProgress: document.getElementById('review-progress'),
+    revProgressText: document.getElementById('review-progress-text'),
+    revDisplay: document.getElementById('review-char-display'),
+    revDisplayArea: document.getElementById('review-display-area'),
+    revCorrectCount: document.getElementById('review-correct-count'),
+    revWrongCount: document.getElementById('review-wrong-count'),
+    btnRevCorrect: document.getElementById('btn-review-correct'),
+    btnRevWrong: document.getElementById('btn-review-wrong'),
+    btnRevPrev: document.getElementById('btn-rev-prev'),
+    btnRevNext: document.getElementById('btn-rev-next'),
+    noWrongChars: document.getElementById('no-wrong-chars'),
+    reviewContent: document.getElementById('review-content'),
+    
+    // Stats
+    totalLearned: document.getElementById('total-learned'),
+    totalCorrectScore: document.getElementById('total-correct'),
+    totalWrongScore: document.getElementById('total-wrong'),
+    accuracyRate: document.getElementById('accuracy-rate'),
+    statsGrid: document.getElementById('char-stats-grid'),
+    statsEmpty: document.getElementById('stats-empty'),
+    statsSort: document.getElementById('stats-sort'),
+    filterBtns: document.querySelectorAll('.filter-btn'),
+    
+    // Modals
+    quizCompleteModal: document.getElementById('quiz-complete-modal'),
+    modalCorrect: document.getElementById('modal-correct'),
+    modalWrong: document.getElementById('modal-wrong'),
+    modalAccuracy: document.getElementById('modal-accuracy'),
+    modalTime: document.getElementById('modal-time'), // 新增
+    btnModalReview: document.getElementById('btn-modal-review'),
+    btnModalRetry: document.getElementById('btn-modal-retry'),
+    btnModalHome: document.getElementById('btn-modal-home'),
+    
+    clearConfirmModal: document.getElementById('clear-confirm-modal'),
+    btnCancelClear: document.getElementById('btn-cancel-clear'),
+    btnConfirmClear: document.getElementById('btn-confirm-clear'),
+
+    // 新增：保留重复复选框
+    keepDuplicates: document.getElementById('keep-duplicates'),
+
+    // 数据导入导出
+    btnExport: document.getElementById('btn-export'),
+    btnImport: document.getElementById('btn-import'),
+    importFileInput: document.getElementById('import-file-input'),
+    importModal: document.getElementById('import-modal'),
+    importModalText: document.getElementById('import-modal-text'),
+    btnImportCancel: document.getElementById('btn-import-cancel'),
+    btnImportMerge: document.getElementById('btn-import-merge'),
+    btnImportReplace: document.getElementById('btn-import-replace'),
+
+    // 自定义汉字组
+    btnNewGroup: document.getElementById('btn-new-group'),
+    customGroupsGrid: document.getElementById('custom-groups-grid'),
+    customGroupsEmpty: document.getElementById('custom-groups-empty'),
+    groupEditorModal: document.getElementById('group-editor-modal'),
+    groupEditorTitle: document.getElementById('group-editor-title'),
+    groupNameInput: document.getElementById('group-name-input'),
+    groupCharsInput: document.getElementById('group-chars-input'),
+    groupCharCount: document.getElementById('group-char-count'),
+    btnGroupUseCurrent: document.getElementById('btn-group-use-current'),
+    btnGroupCancel: document.getElementById('btn-group-cancel'),
+    btnGroupSave: document.getElementById('btn-group-save'),
+
+    // 测试记录（1.1.1 新增）
+    quizHistoryList: document.getElementById('quiz-history-list'),
+    quizHistoryEmpty: document.getElementById('quiz-history-empty'),
+    quizHistoryCount: document.getElementById('quiz-history-count'),
+    btnClearHistory: document.getElementById('btn-clear-history'),
+    // 账号与同步（1.1.2 新增）
+    btnAccount: document.getElementById('btn-account'),
+    btnSync: document.getElementById('btn-sync'),
+    btnLogout: document.getElementById('btn-logout'),
+    btnCloudSync: document.getElementById('btn-cloud-sync'),
+    syncStatus: document.getElementById('sync-status'),
+    authModal: document.getElementById('auth-modal'),
+    authUsernameInput: document.getElementById('auth-username'),
+    authPasswordInput: document.getElementById('auth-password'),
+    authConfirmInput: document.getElementById('auth-confirm'),
+    authConfirmGroup: document.getElementById('auth-confirm-group'),
+    authServerUrl: document.getElementById('auth-server-url'),
+    authError: document.getElementById('auth-error'),
+    btnAuthSubmit: document.getElementById('btn-auth-submit'),
+    btnAuthClose: document.getElementById('btn-auth-close'),
+    syncModal: document.getElementById('sync-modal'),
+    syncModalTitle: document.getElementById('sync-modal-title'),
+    syncModalBody: document.getElementById('sync-modal-body'),
+    btnSyncClose: document.getElementById('btn-sync-close'),
+    navVersion: document.getElementById('nav-version'),
+    updateToast: document.getElementById('update-toast'),
+    updateToastDesc: document.getElementById('update-toast-desc'),
+    btnUpdateNow: document.getElementById('btn-update-now'),
+    btnUpdateLater: document.getElementById('btn-update-later')
+};
+
+// ========== 版本检查：发现新版本并提示更新 ==========
+function compareVersion(a, b) {
+    var pa = String(a).split('.'), pb = String(b).split('.');
+    var len = Math.max(pa.length, pb.length);
+    for (var i = 0; i < len; i++) {
+        var na = parseInt(pa[i] || '0', 10);
+        var nb = parseInt(pb[i] || '0', 10);
+        if (na > nb) return 1;
+        if (na < nb) return -1;
+    }
+    return 0;
+}
+
+function showUpdateToast(serverVersion) {
+    if (!DOMElements.updateToast) return;
+    if (DOMElements.updateToastDesc) {
+        DOMElements.updateToastDesc.textContent = '当前 v' + APP_VERSION + ' → 最新 v' + serverVersion + '，点击立即更新';
+    }
+    DOMElements.updateToast.classList.remove('hidden');
+    DOMElements.updateToast.classList.add('show');
+}
+
+function hideUpdateToast() {
+    if (!DOMElements.updateToast) return;
+    DOMElements.updateToast.classList.add('hidden');
+    DOMElements.updateToast.classList.remove('show');
+}
+
+async function checkForUpdate(manual) {
+    try {
+        var resp = await fetch(SERVER_URL + '/api/version', { cache: 'no-cache' });
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        var data = await resp.json();
+        var serverVersion = data.version;
+        if (compareVersion(serverVersion, APP_VERSION) > 0) {
+            showUpdateToast(serverVersion);
+        } else {
+            hideUpdateToast();
+            if (manual) {
+                if (DOMElements.navVersion) {
+                    var orig = DOMElements.navVersion.textContent;
+                    DOMElements.navVersion.textContent = '✓ 最新';
+                    setTimeout(function() { DOMElements.navVersion.textContent = orig; }, 2000);
+                }
+            }
+        }
+    } catch (e) {
+        if (manual && DOMElements.navVersion) {
+            var orig2 = DOMElements.navVersion.textContent;
+            DOMElements.navVersion.textContent = '✗ 无法检查';
+            setTimeout(function() { DOMElements.navVersion.textContent = orig2; }, 2000);
+        }
+    }
+}
+
+function applyUpdate() {
+    // 清除浏览器缓存后重新加载，确保拉到最新文件
+    if ('caches' in window) {
+        caches.keys().then(function(names) {
+            Promise.all(names.map(function(n) { return caches.delete(n); })).then(function() {
+                location.reload(true);
+            });
+        }).catch(function() { location.reload(true); });
+    } else {
+        location.reload(true);
+    }
+}
+
+function startVersionCheck() {
+    checkForUpdate(false);
+    if (versionCheckTimer) clearInterval(versionCheckTimer);
+    versionCheckTimer = setInterval(function() { checkForUpdate(false); }, 5 * 60 * 1000);
+}
+
+// 初始化
+// Prevent pinch-to-zoom on mobile (iOS Safari ignores user-scalable=no)
+function preventZoom() {
+    document.addEventListener('gesturestart', function(e) { e.preventDefault(); }, { passive: false });
+    document.addEventListener('gesturechange', function(e) { e.preventDefault(); }, { passive: false });
+    document.addEventListener('touchmove', function(e) {
+        if (e.touches && e.touches.length > 1) { e.preventDefault(); }
+    }, { passive: false });
+}
+
+function init() {
+    preventZoom();
+    bindEvents();
+    initAuth();
+    startVersionCheck();
+    updateHomeStats();
+    updatePresetUI();
+    renderCustomGroups();
+    renderQuizHistory();
+    initParticleBackground();
+}
+
+// 绑定事件
+function bindEvents() {
+    // 导航
+    DOMElements.navBtns.forEach(btn => {
+        btn.addEventListener('click', () => switchPage(btn.dataset.page));
+    });
+
+    // 版本检查：点击版本号手动检查更新
+    if (DOMElements.navVersion) {
+        DOMElements.navVersion.style.cursor = 'pointer';
+        DOMElements.navVersion.addEventListener('click', () => checkForUpdate(true));
+    }
+    // 更新提示按钮
+    if (DOMElements.btnUpdateNow) {
+        DOMElements.btnUpdateNow.addEventListener('click', applyUpdate);
+    }
+    if (DOMElements.btnUpdateLater) {
+        DOMElements.btnUpdateLater.addEventListener('click', hideUpdateToast);
+    }
+
+    // 预设面板切换
+    DOMElements.btnLoadPreset.addEventListener('click', () => {
+        DOMElements.presetPanel.classList.toggle('hidden');
+    });
+
+    // 选择预设
+    // 千家诗分类按钮 → 单首选择器
+    const qjsCategoryMap = { qjs_wujue: '五绝', qjs_wulv: '五律', qjs_qijue: '七绝', qjs_qilv: '七律' };
+
+    function updatePoemCounter(total, idx) {
+        if (DOMElements.poemCounter) {
+            DOMElements.poemCounter.textContent = (idx + 1) + ' / ' + total;
+        }
+    }
+
+    function loadPoemSelector(category) {
+        const poems = qianjiashi[category];
+        const sel = DOMElements.poemSelector;
+        const select = DOMElements.poemSelect;
+        select.dataset.category = category;
+        select.innerHTML = '';
+        poems.forEach((p, i) => {
+            const opt = document.createElement('option');
+            opt.value = i;
+            opt.textContent = '《' + p.t + '》' + p.a;
+            select.appendChild(opt);
+        });
+        sel.querySelector('.poem-selector-title').textContent = '千家诗·' + category + '（共 ' + poems.length + ' 首）';
+        sel.classList.remove('hidden');
+        select.selectedIndex = 0;
+        DOMElements.charInput.value = poems[0].c;
+        updatePoemCounter(poems.length, 0);
+    }
+
+    function jumpPoem(delta) {
+        const select = DOMElements.poemSelect;
+        const category = select.dataset.category;
+        const poems = qianjiashi[category];
+        if (!poems || !poems.length) return;
+        let idx = (select.selectedIndex + delta) % poems.length;
+        if (idx < 0) idx += poems.length;
+        select.selectedIndex = idx;
+        DOMElements.charInput.value = poems[idx].c;
+        updatePoemCounter(poems.length, idx);
+    }
+
+    DOMElements.poemSelect.addEventListener('change', (e) => {
+        const idx = parseInt(e.target.value, 10);
+        const category = e.target.dataset.category;
+        if (qianjiashi[category] && qianjiashi[category][idx]) {
+            DOMElements.charInput.value = qianjiashi[category][idx].c;
+            updatePoemCounter(qianjiashi[category].length, idx);
+        }
+    });
+
+    DOMElements.poemPrev.addEventListener('click', () => jumpPoem(-1));
+    DOMElements.poemNext.addEventListener('click', () => jumpPoem(1));
+
+    DOMElements.presetBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            if (e.target.closest('.preset-unmastered-toggle')) return;
+            const presetId = btn.dataset.preset;
+            if (qjsCategoryMap[presetId]) {
+                loadPoemSelector(qjsCategoryMap[presetId]);
+                return;
+            }
+            // 普通预设：隐藏单诗选择器，填入预设，收起面板
+            DOMElements.poemSelector.classList.add('hidden');
+            DOMElements.charInput.value = presets[presetId];
+            DOMElements.presetPanel.classList.add('hidden');
+        });
+    });
+
+    // 未掌握字符列表 折叠/展开（事件委托）
+    DOMElements.presetPanel.addEventListener('click', (e) => {
+        const toggle = e.target.closest('.preset-unmastered-toggle');
+        if (!toggle) return;
+        toggle.closest('.preset-unmastered').classList.toggle('collapsed');
+    });
+
+    // 开始测试
+    DOMElements.btnStartQuiz.addEventListener('click', startQuiz);
+    DOMElements.btnReviewSpecific.addEventListener('click', startSpecificReview);
+
+    // 新增：智能推荐历史错字
+    DOMElements.btnAutoRecommend.addEventListener('click', () => {
+        const unmastered = Object.keys(charsData).filter(char => 
+            !isMastered(char) && charsData[char].wrong > 0
+        );
+        
+        if (unmastered.length === 0) {
+            alert("太棒了！当前没有任何历史错字需要复习。");
+            return;
+        }
+        
+        // 推荐算法：按错误次数从高到低排序
+        unmastered.sort((a, b) => charsData[b].wrong - charsData[a].wrong);
+        
+        // 截取前 30 个最易错的字填入输入框
+        const recommendList = unmastered.slice(0, 30);
+        DOMElements.charInput.value = recommendList.join(' ');
+        alert(`已为您自动填入 ${recommendList.length} 个历史高频错字，点击“开始测试”即可复习！`);
+    });
+
+    // 答题按钮
+    DOMElements.btnCorrect.addEventListener('click', () => handleAnswer(true));
+    DOMElements.btnWrong.addEventListener('click', () => handleAnswer(false));
+    DOMElements.btnRevCorrect.addEventListener('click', () => handleAnswer(true));
+    DOMElements.btnRevWrong.addEventListener('click', () => handleAnswer(false));
+
+    // 上翻下翻导航
+    DOMElements.btnQuizPrev.addEventListener('click', () => navChar(-1));
+    DOMElements.btnQuizNext.addEventListener('click', () => navChar(1));
+    DOMElements.btnRevPrev.addEventListener('click', () => navChar(-1));
+    DOMElements.btnRevNext.addEventListener('click', () => navChar(1));
+
+    // 模态框按钮
+    DOMElements.btnModalHome.addEventListener('click', () => {
+        hideModal(DOMElements.quizCompleteModal);
+        switchPage('home');
+    });
+    DOMElements.btnModalRetry.addEventListener('click', () => {
+        hideModal(DOMElements.quizCompleteModal);
+        retryQuiz();
+    });
+    DOMElements.btnModalReview.addEventListener('click', () => {
+        hideModal(DOMElements.quizCompleteModal);
+        startReview();
+    });
+
+    // 统计和清除
+    DOMElements.filterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const filter = e.target.dataset.filter;
+            if (filter === 'clear') {
+                showModal(DOMElements.clearConfirmModal);
+            } else {
+                DOMElements.filterBtns.forEach(b => {
+                    if (b.dataset.filter !== 'clear') b.classList.remove('active');
+                });
+                e.target.classList.add('active');
+                renderStatsGrid(filter);
+            }
+        });
+    });
+
+    // 排序选择器
+    if (DOMElements.statsSort) {
+        DOMElements.statsSort.addEventListener('change', () => {
+            const active = document.querySelector('.filter-btn.active');
+            renderStatsGrid(active ? active.dataset.filter : 'all');
+        });
+    }
+
+    DOMElements.btnCancelClear.addEventListener('click', () => hideModal(DOMElements.clearConfirmModal));
+    DOMElements.btnConfirmClear.addEventListener('click', () => {
+        charsData = {};
+        saveData();
+        hideModal(DOMElements.clearConfirmModal);
+        updateHomeStats();
+        renderStatsGrid('all');
+    });
+
+    // 数据导入导出
+    DOMElements.btnExport.addEventListener('click', exportData);
+    DOMElements.btnImport.addEventListener('click', () => DOMElements.importFileInput.click());
+    DOMElements.importFileInput.addEventListener('change', handleImportFile);
+    DOMElements.btnImportCancel.addEventListener('click', () => {
+        hideModal(DOMElements.importModal);
+        pendingImportData = null;
+        pendingImportHistory = [];
+    });
+    DOMElements.btnImportMerge.addEventListener('click', () => applyImport('merge'));
+    DOMElements.btnImportReplace.addEventListener('click', () => applyImport('replace'));
+
+    // 自定义汉字组
+    DOMElements.btnNewGroup.addEventListener('click', () => openGroupEditor(null));
+    DOMElements.customGroupsGrid.addEventListener('click', handleCustomGroupClick);
+    DOMElements.btnGroupCancel.addEventListener('click', () => hideModal(DOMElements.groupEditorModal));
+    DOMElements.btnGroupSave.addEventListener('click', saveCustomGroup);
+    DOMElements.groupCharsInput.addEventListener('input', updateGroupCharCount);
+    DOMElements.btnGroupUseCurrent.addEventListener('click', () => {
+        DOMElements.groupCharsInput.value = DOMElements.charInput.value;
+        updateGroupCharCount();
+    });
+
+    // 测试记录（1.1.1 新增）
+    DOMElements.quizHistoryList.addEventListener('click', (e) => {
+        const btn = e.target.closest('.qh-retry');
+        if (!btn) return;
+        const card = btn.closest('.quiz-history-card');
+        if (card) retryFromHistory(card.dataset.id);
+    });
+    DOMElements.btnClearHistory.addEventListener('click', clearQuizHistory);
+    // 账号与同步事件（1.1.2 新增）
+    DOMElements.btnAccount.addEventListener('click', openAuthModal);
+    DOMElements.btnAuthClose.addEventListener('click', closeAuthModal);
+    DOMElements.btnAuthSubmit.addEventListener('click', handleAuthSubmit);
+    DOMElements.btnSync.addEventListener('click', doSync);
+    DOMElements.btnLogout.addEventListener('click', doLogout);
+    DOMElements.btnCloudSync.addEventListener('click', doSync);
+    DOMElements.btnSyncClose.addEventListener('click', () => DOMElements.syncModal.classList.add('hidden'));
+    document.querySelectorAll('.auth-tab').forEach(tab => {
+        tab.addEventListener('click', () => switchAuthTab(tab.dataset.tab));
+    });
+    DOMElements.authModal.addEventListener('click', (e) => {
+        if (e.target === DOMElements.authModal) closeAuthModal();
+    });
+    DOMElements.authPasswordInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleAuthSubmit();
+    });
+    DOMElements.authConfirmInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleAuthSubmit();
+    });
+}
+
+// 页面切换
+function switchPage(pageId) {
+    if (pageId === 'quiz') {
+        if (currentQuizList.length === 0 || currentIdx >= currentQuizList.length) {
+            alert('当前没有进行中的测试，请先在首页输入汉字并开始测试哦！');
+            pageId = 'home';
+        }
+    } else if (pageId === 'review') {
+        startReview();
+    } else if (pageId === 'stats') {
+        renderStatsGrid('all');
+        DOMElements.filterBtns.forEach(b => {
+            if (b.dataset.filter !== 'clear') {
+                b.classList.toggle('active', b.dataset.filter === 'all');
+            }
+        });
+    } else if (pageId === 'history') {
+        renderQuizHistory();
+    }
+
+    DOMElements.pages.forEach(p => p.classList.remove('active'));
+    DOMElements.navBtns.forEach(b => b.classList.remove('active'));
+
+    document.getElementById(`page-${pageId}`).classList.add('active');
+    document.getElementById(`nav-${pageId}`).classList.add('active');
+}
+window.switchPage = switchPage;
+
+// ========== 核心逻辑 ==========
+
+/**
+ * 解析输入字符串，提取汉字字符
+ * @param {string} input - 用户输入的字符串
+ * @param {boolean} keepDuplicates - 是否保留重复字符，默认 false（去重）
+ * @returns {string[]} 汉字数组
+ */
+function parseChars(input, keepDuplicates = false) {
+    const chars = input.replace(/[^\u4e00-\u9fa5]/g, '').split('');
+    if (!keepDuplicates) {
+        return Array.from(new Set(chars));
+    }
+    return chars;
+}
+
+function shuffleArray(arr) {
+    const copy = [...arr];
+    for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+}
+
+function startQuiz() {
+    const input = DOMElements.charInput.value;
+    const keepDuplicates = DOMElements.keepDuplicates.checked;
+    const chars = parseChars(input, keepDuplicates);
+    if (chars.length === 0) {
+        alert("请输入至少一个有效的汉字！");
+        return;
+    }
+
+    chars.forEach(char => {
+        if (!charsData[char]) {
+            charsData[char] = { correct: 0, wrong: 0, streak: 0, lastTested: nextTestedTime() };
+        } else if (charsData[char].streak === undefined) {
+            charsData[char].streak = 0;
+        }
+    });
+    saveData();
+
+    const orderMode = document.querySelector('input[name="order-mode"]:checked')?.value || 'random';
+    originalQuizList = orderMode === 'random' ? shuffleArray(chars) : [...chars];
+    currentQuizList = [...originalQuizList];
+    currentIdx = 0;
+    quizResult = { correct: 0, wrong: 0 };
+    isReviewMode = false;
+
+    quizStartTime = Date.now(); // 记录开始时间
+    switchPage('quiz');
+    showCurrentChar();
+}
+
+function retryQuiz() {
+    if (originalQuizList.length === 0) return;
+    const orderMode = document.querySelector('input[name="order-mode"]:checked')?.value || 'random';
+    currentQuizList = orderMode === 'random' ? shuffleArray([...originalQuizList]) : [...originalQuizList];
+    currentIdx = 0;
+    quizResult = { correct: 0, wrong: 0 };
+    isReviewMode = false;
+    
+    quizStartTime = Date.now(); // 记录开始时间
+    switchPage('quiz');
+    showCurrentChar();
+}
+
+function startSpecificReview() {
+    const input = DOMElements.charInput.value;
+    const keepDuplicates = DOMElements.keepDuplicates.checked;
+    const chars = parseChars(input, keepDuplicates);
+    if (chars.length === 0) {
+        alert("请输入或者选择一组有效汉字后再复习错字！");
+        return;
+    }
+
+    const reviewList = chars.filter(char => charsData[char] && !isMastered(char) && (charsData[char].correct + charsData[char].wrong > 0));
+    
+    if (reviewList.length === 0) {
+        alert("太棒了！这组汉字中目前没有发现您答错过哦。");
+        return;
+    }
+
+    const orderMode = document.querySelector('input[name="order-mode"]:checked')?.value || 'random';
+    currentQuizList = orderMode === 'random' ? shuffleArray(reviewList) : [...reviewList];
+    originalQuizList = []; 
+    
+    currentIdx = 0;
+    quizResult = { correct: 0, wrong: 0 };
+    isReviewMode = true;
+
+    DOMElements.noWrongChars.classList.add('hidden');
+    DOMElements.reviewContent.classList.remove('hidden');
+
+    DOMElements.pages.forEach(p => p.classList.remove('active'));
+    DOMElements.navBtns.forEach(b => b.classList.remove('active'));
+    document.getElementById('page-review').classList.add('active');
+    document.getElementById('nav-review').classList.add('active');
+
+    quizStartTime = Date.now(); // 记录开始时间
+    showCurrentChar();
+}
+
+function startReview() {
+    const reviewList = Object.keys(charsData).filter(char => !isMastered(char) && (charsData[char].correct + charsData[char].wrong > 0));
+    
+    if (reviewList.length === 0) {
+        DOMElements.noWrongChars.classList.remove('hidden');
+        DOMElements.reviewContent.classList.add('hidden');
+    } else {
+        DOMElements.noWrongChars.classList.add('hidden');
+        DOMElements.reviewContent.classList.remove('hidden');
+        
+        currentQuizList = shuffleArray(reviewList);
+        if (currentQuizList.length > 20) currentQuizList = currentQuizList.slice(0, 20);
+        originalQuizList = []; 
+        
+        currentIdx = 0;
+        quizResult = { correct: 0, wrong: 0 };
+        isReviewMode = true;
+        
+        quizStartTime = Date.now(); // 记录开始时间
+        showCurrentChar();
+    }
+    
+    DOMElements.pages.forEach(p => p.classList.remove('active'));
+    DOMElements.navBtns.forEach(b => b.classList.remove('active'));
+    document.getElementById('page-review').classList.add('active');
+    document.getElementById('nav-review').classList.add('active');
+}
+
+// 上翻下翻：自由调整识字顺序（不记录答题，仅导航）
+function navChar(delta) {
+    if (currentQuizList.length === 0) return;
+    let newIdx = currentIdx + delta;
+    if (newIdx < 0) newIdx = 0;
+    if (newIdx >= currentQuizList.length) {
+        finishQuiz();
+        return;
+    }
+    currentIdx = newIdx;
+    showCurrentChar();
+}
+
+function showCurrentChar() {
+    if (currentIdx >= currentQuizList.length) {
+        finishQuiz();
+        return;
+    }
+
+    const char = currentQuizList[currentIdx];
+    const data = charsData[char];
+    
+    const displayElement = isReviewMode ? DOMElements.revDisplay : DOMElements.charDisplay;
+    const progressTextElement = isReviewMode ? DOMElements.revProgressText : DOMElements.quizProgressText;
+    const progressBarElement = isReviewMode ? DOMElements.revProgress : DOMElements.quizProgress;
+    const correctCountElement = isReviewMode ? DOMElements.revCorrectCount : DOMElements.charCorrectCount;
+    const wrongCountElement = isReviewMode ? DOMElements.revWrongCount : DOMElements.charWrongCount;
+    
+    displayElement.classList.remove('char-enter');
+    void displayElement.offsetWidth;
+    displayElement.textContent = char;
+    displayElement.classList.add('char-enter');
+    
+    progressTextElement.textContent = `${currentIdx + 1} / ${currentQuizList.length}`;
+    progressBarElement.style.width = `${((currentIdx) / currentQuizList.length) * 100}%`;
+    
+    correctCountElement.textContent = `✔ ${data.correct}`;
+    wrongCountElement.textContent = `✘ ${data.wrong}`;
+
+    // 更新上翻下翻按钮可用状态
+    updateNavButtons();
+}
+
+function updateNavButtons() {
+    const prevBtn = isReviewMode ? DOMElements.btnRevPrev : DOMElements.btnQuizPrev;
+    const nextBtn = isReviewMode ? DOMElements.btnRevNext : DOMElements.btnQuizNext;
+    if (prevBtn) prevBtn.classList.toggle('nav-disabled', currentIdx <= 0);
+    if (nextBtn) nextBtn.classList.toggle('nav-disabled', currentIdx >= currentQuizList.length - 1);
+}
+
+function handleAnswer(isCorrect) {
+    if (currentIdx >= currentQuizList.length) return;
+    
+    const char = currentQuizList[currentIdx];
+    
+    if (isCorrect) {
+        charsData[char].correct++;
+        charsData[char].streak = (charsData[char].streak || 0) + 1;
+        quizResult.correct++;
+        feedbackAnimation(true);
+    } else {
+        charsData[char].wrong++;
+        charsData[char].streak = 0;
+        quizResult.wrong++;
+        feedbackAnimation(false);
+    }
+    charsData[char].lastTested = nextTestedTime();
+    saveData();
+    currentIdx++;
+    
+    setTimeout(() => {
+        showCurrentChar();
+    }, 400);
+}
+
+function feedbackAnimation(isCorrect) {
+    const area = isReviewMode ? DOMElements.revDisplayArea : DOMElements.charDisplayArea;
+    
+    area.style.transform = 'scale(1.05)';
+    area.style.boxShadow = isCorrect ? '0 0 40px rgba(46, 204, 113, 0.4)' : '0 0 40px rgba(231, 76, 60, 0.4)';
+    
+    setTimeout(() => {
+        area.style.transform = 'scale(1)';
+        area.style.boxShadow = 'var(--shadow-lg)';
+    }, 300);
+}
+
+function finishQuiz() {
+    const bar = isReviewMode ? DOMElements.revProgress : DOMElements.quizProgress;
+    bar.style.width = '100%';
+    
+    DOMElements.modalCorrect.textContent = quizResult.correct;
+    DOMElements.modalWrong.textContent = quizResult.wrong;
+    
+    const total = quizResult.correct + quizResult.wrong;
+    const acc = total > 0 ? Math.round((quizResult.correct / total) * 100) : 0;
+    DOMElements.modalAccuracy.textContent = acc + '%';
+    
+    // 计算并展示用时
+    const timeSec = Math.floor((Date.now() - quizStartTime) / 1000);
+    const m = Math.floor(timeSec / 60);
+    const s = timeSec % 60;
+    DOMElements.modalTime.textContent = m > 0 ? `${m}分${s}秒` : `${s}秒`;
+    
+    const needsReviewList = Object.keys(charsData).filter(char => !isMastered(char) && (charsData[char].correct + charsData[char].wrong > 0));
+    if (isReviewMode || needsReviewList.length === 0) {
+        DOMElements.btnModalReview.style.display = 'none';
+        DOMElements.btnModalRetry.style.display = isReviewMode ? 'none' : 'block';
+    } else {
+        DOMElements.btnModalReview.style.display = 'block';
+        DOMElements.btnModalRetry.style.display = 'block';
+    }
+    
+    // 记录本次测试/复习（1.1.1 新增）
+    recordQuizSession();
+
+    updateHomeStats();
+    updatePresetUI();
+    renderCustomGroups();
+    renderQuizHistory();
+    showModal(DOMElements.quizCompleteModal);
+}
+
+function isMastered(char) {
+    const d = charsData[char];
+    if (!d) return false;
+    if (d.wrong === 0 && d.correct > 0) return true;
+    if (d.streak >= 3) return true;
+    if (d.streak === undefined && (d.correct - d.wrong >= 3)) return true;
+    return false;
+}
+
+function updatePresetUI() {
+    DOMElements.presetBtns.forEach(btn => {
+        const presetId = btn.dataset.preset;
+        if (!presets[presetId]) return;
+        // 预设统计始终去重
+        const chars = parseChars(presets[presetId], false);
+        const total = chars.length;
+        
+        const unmastered = chars.filter(c => !isMastered(c));
+        const masteredCount = total - unmastered.length;
+        const accuracy = total > 0 ? Math.round((masteredCount / total) * 100) : 0;
+        
+        let statsEl = btn.querySelector('.preset-stats');
+        if (!statsEl) {
+            statsEl = document.createElement('div');
+            statsEl.className = 'preset-stats';
+            btn.appendChild(statsEl);
+        }
+        
+        statsEl.innerHTML = `
+            <div class="preset-progress">掌握率: ${accuracy}% (${masteredCount}/${total})</div>
+            ${unmastered.length > 0 ? 
+                `<div class="preset-unmastered collapsed">
+                    <div class="preset-unmastered-toggle">未掌握(${unmastered.length})</div>
+                    <div class="preset-unmastered-list"><span>${unmastered.join(' ')}</span></div>
+                </div>` : 
+                `<div class="preset-unmastered all-mastered">🎉 全部掌握！</div>`}
+        `;
+    });
+}
+
+// ========== 测试记录（1.1.1 新增）==========
+
+function saveQuizHistory() {
+    if (quizHistory.length > 200) quizHistory = quizHistory.slice(-200);
+    localStorage.setItem('quizHistory', JSON.stringify(quizHistory));
+}
+
+// 在 finishQuiz 中调用：记录一次测试/复习
+function recordQuizSession() {
+    const endTime = Date.now();
+    const chars = Array.from(new Set(currentQuizList));
+    const total = quizResult.correct + quizResult.wrong;
+    const accuracy = total > 0 ? Math.round((quizResult.correct / total) * 100) : 0;
+    const orderMode = document.querySelector('input[name="order-mode"]:checked')?.value || 'random';
+    const record = {
+        id: 'q' + endTime.toString(36) + Math.random().toString(36).slice(2, 6),
+        type: isReviewMode ? 'review' : 'test',
+        chars: chars,
+        startTime: quizStartTime,
+        endTime: endTime,
+        startTimeStr: formatDateTime(quizStartTime),
+        endTimeStr: formatDateTime(endTime),
+        correct: quizResult.correct,
+        wrong: quizResult.wrong,
+        accuracy: accuracy,
+        orderMode: orderMode
+    };
+    quizHistory.push(record);
+    saveQuizHistory();
+}
+
+function formatDateTime(ts) {
+    const d = new Date(ts);
+    const pad = n => String(n).padStart(2, '0');
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+}
+
+function formatDuration(ms) {
+    const sec = Math.max(0, Math.floor(ms / 1000));
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return m > 0 ? m + '分' + s + '秒' : s + '秒';
+}
+
+function renderQuizHistory() {
+    const list = DOMElements.quizHistoryList;
+    if (!list) return;
+    const empty = DOMElements.quizHistoryEmpty;
+    const countEl = DOMElements.quizHistoryCount;
+    const records = [...quizHistory].reverse();
+    countEl.textContent = '共 ' + quizHistory.length + ' 次';
+    if (quizHistory.length === 0) {
+        list.innerHTML = '';
+        empty.classList.remove('hidden');
+        list.classList.add('hidden');
+        return;
+    }
+    empty.classList.add('hidden');
+    list.classList.remove('hidden');
+    list.innerHTML = '';
+    records.forEach(rec => {
+        const isReview = rec.type === 'review';
+        const preview = rec.chars.slice(0, 20).join(' ') + (rec.chars.length > 20 ? ' …' : '');
+        const card = document.createElement('div');
+        card.className = 'quiz-history-card';
+        card.dataset.id = rec.id;
+        card.innerHTML =
+            '<div class="qh-top">' +
+              '<span class="qh-badge ' + (isReview ? 'qh-badge-review' : 'qh-badge-test') + '">' + (isReview ? '🔄 复习' : '✏️ 测试') + '</span>' +
+              '<span class="qh-chars-count">' + rec.chars.length + ' 字</span>' +
+              '<span class="qh-accuracy">正确率 ' + rec.accuracy + '%</span>' +
+            '</div>' +
+            '<div class="qh-chars" title="共 ' + rec.chars.length + ' 个汉字">' + preview + '</div>' +
+            '<div class="qh-meta">' +
+              '<span>🕐 ' + formatDateTime(rec.startTime) + '</span>' +
+              '<span>⏱ 用时 ' + formatDuration(rec.endTime - rec.startTime) + '</span>' +
+              '<span class="qh-result">✔ ' + rec.correct + ' · ✘ ' + rec.wrong + '</span>' +
+            '</div>' +
+            '<div class="qh-actions">' +
+              '<button type="button" class="qh-btn qh-retry">🔁 再测一次</button>' +
+            '</div>';
+        list.appendChild(card);
+    });
+}
+
+function retryFromHistory(id) {
+    const rec = quizHistory.find(r => r.id === id);
+    if (!rec) return;
+    DOMElements.charInput.value = rec.chars.join(' ');
+    DOMElements.presetPanel.classList.add('hidden');
+    DOMElements.poemSelector.classList.add('hidden');
+    switchPage('home');
+    startQuiz();
+}
+
+function clearQuizHistory() {
+    if (quizHistory.length === 0) {
+        alert('当前没有测试记录可清空。');
+        return;
+    }
+    if (confirm('确定要清空所有测试记录吗？此操作不可恢复。')) {
+        quizHistory = [];
+        saveQuizHistory();
+        renderQuizHistory();
+    }
+}
+
+// ========== 数据管理和统计UI ==========
+
+function saveData() {
+    localStorage.setItem('charsData', JSON.stringify(charsData));
+}
+
+// ========== 数据导入导出 ==========
+let pendingImportData = null;
+
+// 导出全部学习记录为 JSON 文件
+function exportData() {
+    const keys = Object.keys(charsData);
+    if (keys.length === 0) {
+        alert('当前没有学习记录可导出，先做几次测试吧！');
+        return;
+    }
+    const payload = {
+        app: '汉字识别学习系统',
+        version: '1.1.2',
+        exportedAt: new Date().toISOString(),
+        count: keys.length,
+        charsData: charsData,
+        quizHistory: quizHistory.map(r => ({
+            ...r,
+            startTimeStr: r.startTimeStr || formatDateTime(r.startTime),
+            endTimeStr: r.endTimeStr || formatDateTime(r.endTime)
+        }))
+    };
+    const json = JSON.stringify(payload, null, 2);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const d = new Date();
+    const stamp = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`;
+    a.href = url;
+    a.download = `识字记录_${stamp}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+// 读取并校验导入文件
+function handleImportFile(e) {
+    const file = e.target.files[0];
+    e.target.value = ''; // 允许重复选择同一文件
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+        try {
+            const parsed = JSON.parse(ev.target.result);
+            let data;
+            if (parsed && typeof parsed === 'object' && parsed.charsData && typeof parsed.charsData === 'object') {
+                data = parsed.charsData;
+            } else if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+                data = parsed; // 兼容直接为 charsData 结构的文件
+            } else {
+                throw new Error('格式不正确');
+            }
+            const cleaned = {};
+            let validCount = 0;
+            for (const char in data) {
+                const d = data[char];
+                if (d && typeof d === 'object' && (typeof d.correct === 'number' || typeof d.wrong === 'number')) {
+                    cleaned[char] = {
+                        correct: Math.max(0, Number(d.correct) || 0),
+                        wrong: Math.max(0, Number(d.wrong) || 0),
+                        streak: Math.max(0, Number(d.streak) || 0),
+                        lastTested: Number(d.lastTested) || 0
+                    };
+                    validCount++;
+                }
+            }
+            if (validCount === 0) {
+                alert('文件中没有有效的学习记录。');
+                return;
+            }
+            pendingImportData = cleaned;
+            pendingImportHistory = (Array.isArray(parsed.quizHistory) ? parsed.quizHistory.filter(r =>
+                r && typeof r === 'object' && typeof r.id === 'string' &&
+                typeof r.startTime === 'number' && typeof r.endTime === 'number' &&
+                Array.isArray(r.chars)
+            ) : []);
+            const existing = Object.keys(charsData).length;
+            DOMElements.importModalText.textContent =
+                `检测到 ${validCount} 个汉字的学习记录，当前已有 ${existing} 个字的记录。请选择导入方式。`;
+            showModal(DOMElements.importModal);
+        } catch (err) {
+            alert('导入失败：文件格式不正确或已损坏。');
+        }
+    };
+    reader.onerror = () => alert('读取文件失败，请重试。');
+    reader.readAsText(file, 'utf-8');
+}
+
+// 应用导入：merge 合并取较好成绩 / replace 替换全部
+function applyImport(mode) {
+    if (!pendingImportData) return;
+    if (mode === 'replace') {
+        charsData = {};
+    }
+    let added = 0, updated = 0;
+    for (const char in pendingImportData) {
+        const imp = pendingImportData[char];
+        if (charsData[char]) {
+            charsData[char].correct = Math.max(charsData[char].correct || 0, imp.correct);
+            charsData[char].wrong = Math.max(charsData[char].wrong || 0, imp.wrong);
+            charsData[char].streak = Math.max(charsData[char].streak || 0, imp.streak);
+            updated++;
+        } else {
+            charsData[char] = { correct: imp.correct, wrong: imp.wrong, streak: imp.streak, lastTested: imp.lastTested || 0 };
+            added++;
+        }
+    }
+    saveData();
+    // 合并/替换测试记录（1.1.1 新增）
+    if (pendingImportHistory.length > 0) {
+        if (mode === 'replace') {
+            quizHistory = pendingImportHistory.slice();
+        } else {
+            const existIds = new Set(quizHistory.map(r => r.id));
+            pendingImportHistory.forEach(r => { if (!existIds.has(r.id)) quizHistory.push(r); });
+        }
+        saveQuizHistory();
+        renderQuizHistory();
+    }
+    pendingImportData = null;
+    pendingImportHistory = [];
+    hideModal(DOMElements.importModal);
+    updateHomeStats();
+    renderStatsGrid('all');
+    DOMElements.filterBtns.forEach(b => {
+        if (b.dataset.filter !== 'clear') b.classList.remove('active');
+    });
+    document.getElementById('filter-all')?.classList.add('active');
+    alert(`导入成功！${mode === 'replace' ? '共' : '新增 '}${added} 个字${updated ? `，更新 ${updated} 个字` : ''}。`);
+}
+
+function updateHomeStats() {
+    let tChars = 0;
+    let tCorrect = 0;
+    let tWrong = 0;
+    
+    for (let char in charsData) {
+        tChars++;
+        tCorrect += charsData[char].correct;
+        tWrong += charsData[char].wrong;
+    }
+    
+    DOMElements.totalLearned.textContent = tChars;
+    DOMElements.totalCorrectScore.textContent = tCorrect;
+    DOMElements.totalWrongScore.textContent = tWrong;
+    
+    const totalAns = tCorrect + tWrong;
+    DOMElements.accuracyRate.textContent = totalAns > 0 ? Math.round((tCorrect / totalAns) * 100) + '%' : '0%';
+}
+
+function renderStatsGrid(filter) {
+    DOMElements.statsGrid.innerHTML = '';
+    
+    const chars = Object.keys(charsData);
+    if (chars.length === 0) {
+        DOMElements.statsEmpty.classList.remove('hidden');
+        DOMElements.statsGrid.classList.add('hidden');
+        return;
+    } else {
+        DOMElements.statsEmpty.classList.add('hidden');
+        DOMElements.statsGrid.classList.remove('hidden');
+    }
+    
+    let filteredChars = chars;
+    
+    if (filter === 'correct') {
+        filteredChars = chars.filter(c => isMastered(c));
+    } else if (filter === 'wrong') {
+        filteredChars = chars.filter(c => !isMastered(c) && (charsData[c].correct + charsData[c].wrong > 0));
+    }
+    
+    const sortMode = (DOMElements.statsSort && DOMElements.statsSort.value) || 'time-desc';
+    filteredChars.sort((a, b) => {
+        const da = charsData[a], db = charsData[b];
+        const ta = da.lastTested || 0, tb = db.lastTested || 0;
+        if (sortMode === 'time-asc') return ta - tb;
+        if (sortMode === 'time-desc') return tb - ta;
+        if (sortMode === 'wrong-asc') return da.wrong - db.wrong;
+        // wrong-desc
+        return db.wrong - da.wrong;
+    });
+    
+    filteredChars.forEach(char => {
+        const d = charsData[char];
+        const total = d.correct + d.wrong;
+        let masteryClass = 'mastery-low';
+        if (total > 0) {
+            const acc = d.correct / total;
+            if (acc >= 0.8) masteryClass = 'mastery-high';
+            else if (acc >= 0.5) masteryClass = 'mastery-med';
+        } else if (total === 0) {
+            masteryClass = ''; 
+        }
+        
+        const el = document.createElement('div');
+        el.className = 'stat-item';
+        el.innerHTML = `
+            ${masteryClass ? `<div class="stat-mastery ${masteryClass}"></div>` : ''}
+            <span class="stat-char">${char}</span>
+            <div class="stat-details">
+                <span class="stat-c" title="答对">✔ ${d.correct}</span>
+                <span class="stat-w" title="答错">✘ ${d.wrong}</span>
+            </div>
+        `;
+        DOMElements.statsGrid.appendChild(el);
+    });
+}
+
+// ========== 辅助和动效 ==========
+
+function showModal(modal) {
+    modal.classList.remove('hidden');
+}
+
+function hideModal(modal) {
+    modal.classList.add('hidden');
+}
+
+function initParticleBackground() {
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+    
+    const particles = [];
+    
+    for(let i=0; i<30; i++) {
+        particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: Math.random() * 4 + 1,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            color: Math.random() > 0.5 ? '#4A90E2' : '#F39C12'
+        });
+    }
+    
+    function draw() {
+        ctx.clearRect(0, 0, width, height);
+        
+        particles.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
+            
+            if (p.x < 0 || p.x > width) p.vx *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
+            
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = 0.2;
+            ctx.fill();
+        });
+        
+        requestAnimationFrame(draw);
+    }
+    
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    });
+    
+    draw();
+}
+
+// ========== 自定义汉字组 ==========
+
+function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str == null ? '' : String(str);
+    return div.innerHTML;
+}
+
+function saveCustomGroups() {
+    localStorage.setItem('customGroups', JSON.stringify(customGroups));
+}
+
+// 渲染"我的汉字组"卡片列表
+function renderCustomGroups() {
+    const grid = DOMElements.customGroupsGrid;
+    const empty = DOMElements.customGroupsEmpty;
+    const ids = Object.keys(customGroups).sort((a, b) =>
+        (customGroups[b].createdAt || 0) - (customGroups[a].createdAt || 0)
+    );
+    grid.innerHTML = '';
+    if (ids.length === 0) {
+        empty.classList.remove('hidden');
+        grid.classList.add('hidden');
+        return;
+    }
+    empty.classList.add('hidden');
+    grid.classList.remove('hidden');
+    ids.forEach(id => {
+        const g = customGroups[id];
+        const chars = parseChars(g.chars, false);
+        const total = chars.length;
+        const unmastered = chars.filter(c => !isMastered(c));
+        const masteredCount = total - unmastered.length;
+        const accuracy = total > 0 ? Math.round((masteredCount / total) * 100) : 0;
+        const card = document.createElement('div');
+        card.className = 'custom-group-card';
+        card.dataset.groupId = id;
+        card.innerHTML = `
+            <div class="custom-group-main">
+                <span class="custom-group-emoji">📁</span>
+                <span class="custom-group-name">${escapeHtml(g.name)}</span>
+                <span class="custom-group-desc">${total} 字 · 掌握 ${accuracy}%</span>
+                <div class="custom-group-stats">
+                    <div class="preset-progress">掌握率: ${accuracy}% (${masteredCount}/${total})</div>
+                    ${unmastered.length > 0 ?
+                        `<div class="preset-unmastered collapsed">
+                            <div class="preset-unmastered-toggle">未掌握(${unmastered.length})</div>
+                            <div class="preset-unmastered-list"><span>${unmastered.join(' ')}</span></div>
+                        </div>` :
+                        `<div class="preset-unmastered all-mastered">🎉 全部掌握！</div>`}
+                </div>
+            </div>
+            <div class="custom-group-actions">
+                <button class="custom-group-btn edit" title="编辑" type="button">✏️</button>
+                <button class="custom-group-btn delete" title="删除" type="button">🗑️</button>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+// 点击汉字组卡片（事件委托）
+function handleCustomGroupClick(e) {
+    const card = e.target.closest('.custom-group-card');
+    if (!card) return;
+    const id = card.dataset.groupId;
+    // 未掌握列表折叠/展开交由 presetPanel 委托统一处理
+    if (e.target.closest('.preset-unmastered-toggle')) return;
+    if (e.target.closest('.custom-group-btn.edit')) {
+        openGroupEditor(id);
+        return;
+    }
+    if (e.target.closest('.custom-group-btn.delete')) {
+        deleteCustomGroup(id);
+        return;
+    }
+    loadCustomGroup(id);
+}
+
+// 打开新建/编辑弹窗
+function openGroupEditor(groupId) {
+    editingGroupId = groupId || null;
+    DOMElements.groupEditorTitle.textContent = groupId ? '编辑汉字组' : '新建汉字组';
+    if (groupId && customGroups[groupId]) {
+        DOMElements.groupNameInput.value = customGroups[groupId].name;
+        DOMElements.groupCharsInput.value = customGroups[groupId].chars;
+    } else {
+        DOMElements.groupNameInput.value = '';
+        DOMElements.groupCharsInput.value = '';
+    }
+    updateGroupCharCount();
+    showModal(DOMElements.groupEditorModal);
+    setTimeout(() => DOMElements.groupNameInput.focus(), 100);
+}
+
+function updateGroupCharCount() {
+    const chars = parseChars(DOMElements.groupCharsInput.value, false);
+    DOMElements.groupCharCount.textContent = `${chars.length} 个汉字（去重后）`;
+}
+
+function saveCustomGroup() {
+    const name = DOMElements.groupNameInput.value.trim();
+    const chars = DOMElements.groupCharsInput.value;
+    const parsed = parseChars(chars, false);
+    if (!name) {
+        alert('请输入汉字组名称！');
+        DOMElements.groupNameInput.focus();
+        return;
+    }
+    if (parsed.length === 0) {
+        alert('请输入至少一个有效的汉字！');
+        DOMElements.groupCharsInput.focus();
+        return;
+    }
+    if (editingGroupId) {
+        customGroups[editingGroupId].name = name;
+        customGroups[editingGroupId].chars = chars;
+        customGroups[editingGroupId].updatedAt = Date.now();
+    } else {
+        const id = 'g' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+        customGroups[id] = { name, chars, createdAt: Date.now() };
+    }
+    saveCustomGroups();
+    hideModal(DOMElements.groupEditorModal);
+    renderCustomGroups();
+}
+
+function deleteCustomGroup(id) {
+    const g = customGroups[id];
+    if (!g) return;
+    if (confirm(`确定要删除汉字组「${g.name}」吗？此操作不可恢复。`)) {
+        delete customGroups[id];
+        saveCustomGroups();
+        renderCustomGroups();
+    }
+}
+
+function loadCustomGroup(id) {
+    const g = customGroups[id];
+    if (!g) return;
+    DOMElements.poemSelector.classList.add('hidden');
+    DOMElements.charInput.value = g.chars;
+    DOMElements.presetPanel.classList.add('hidden');
+}
+
+window.addEventListener('DOMContentLoaded', init);
+
+
+// ========== 账号与多设备同步功能（1.1.2 新增）==========
+
+function initAuth() {
+    // 恢复服务器地址（优先用自动检测的地址）
+    var saved = localStorage.getItem('serverUrl');
+    DOMElements.authServerUrl.value = saved || SERVER_URL;
+    updateAuthUI();
+}
+
+function updateAuthUI() {
+    var loggedIn = !!authToken;
+    // 未登录：显示"登录"按钮
+    DOMElements.btnAccount.classList.toggle('hidden', loggedIn);
+    DOMElements.btnAccount.querySelector('.btn-text').textContent = '登录';
+    // 已登录：显示用户名+同步+退出
+    DOMElements.btnSync.classList.toggle('hidden', !loggedIn);
+    DOMElements.btnLogout.classList.toggle('hidden', !loggedIn);
+    if (loggedIn) {
+        DOMElements.btnAccount.classList.remove('hidden');
+        DOMElements.btnAccount.querySelector('.btn-text').textContent = authUsername;
+        DOMElements.btnAccount.title = '已登录: ' + authUsername;
+    }
+    // 统计页云端同步按钮
+    if (DOMElements.btnCloudSync) {
+        DOMElements.btnCloudSync.textContent = loggedIn ? '☁️ 云端同步' : '☁️ 登录后同步';
+    }
+}
+
+function openAuthModal() {
+    if (authToken) return; // 已登录不弹窗
+    DOMElements.authModal.classList.remove('hidden');
+    DOMElements.authError.classList.add('hidden');
+    switchAuthTab('login');
+    DOMElements.authUsernameInput.focus();
+}
+
+function closeAuthModal() {
+    DOMElements.authModal.classList.add('hidden');
+    DOMElements.authUsernameInput.value = '';
+    DOMElements.authPasswordInput.value = '';
+    DOMElements.authConfirmInput.value = '';
+    DOMElements.authError.classList.add('hidden');
+}
+
+function switchAuthTab(tab) {
+    authMode = tab;
+    document.querySelectorAll('.auth-tab').forEach(t => {
+        t.classList.toggle('active', t.dataset.tab === tab);
+    });
+    var isRegister = (tab === 'register');
+    DOMElements.authConfirmGroup.classList.toggle('hidden', !isRegister);
+    DOMElements.btnAuthSubmit.textContent = isRegister ? '注册' : '登录';
+    DOMElements.authError.classList.add('hidden');
+}
+
+function showAuthError(msg) {
+    DOMElements.authError.textContent = msg;
+    DOMElements.authError.classList.remove('hidden');
+}
+
+async function handleAuthSubmit() {
+    var username = DOMElements.authUsernameInput.value.trim();
+    var password = DOMElements.authPasswordInput.value;
+    var serverUrl = DOMElements.authServerUrl.value.trim().replace(/\/$/, '');
+
+    if (!username) { showAuthError('请输入用户名'); return; }
+    if (!password) { showAuthError('请输入密码'); return; }
+    if (!serverUrl) { showAuthError('请输入服务器地址'); return; }
+
+    SERVER_URL = serverUrl;
+    localStorage.setItem('serverUrl', serverUrl);
+
+    if (authMode === 'register') {
+        var confirm = DOMElements.authConfirmInput.value;
+        if (password !== confirm) { showAuthError('两次密码不一致'); return; }
+    }
+
+    DOMElements.btnAuthSubmit.disabled = true;
+    DOMElements.btnAuthSubmit.textContent = '请稍候...';
+
+    try {
+        var url = SERVER_URL + '/api/' + authMode;
+        var resp = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: username, password: password })
+        });
+        var data = await resp.json();
+        if (!resp.ok) {
+            showAuthError(data.error || '操作失败');
+            return;
+        }
+        // 保存登录状态
+        authToken = data.token;
+        authUsername = data.username;
+        localStorage.setItem('authToken', authToken);
+        localStorage.setItem('authUsername', authUsername);
+        closeAuthModal();
+        updateAuthUI();
+        // 登录后自动同步（下载云端数据合并到本地）
+        await doSync();
+    } catch (err) {
+        showAuthError('无法连接服务器: ' + err.message);
+    } finally {
+        DOMElements.btnAuthSubmit.disabled = false;
+        DOMElements.btnAuthSubmit.textContent = (authMode === 'register') ? '注册' : '登录';
+    }
+}
+
+function doLogout() {
+    if (!confirm('确定要退出登录吗？')) return;
+    authToken = '';
+    authUsername = '';
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('authUsername');
+    updateAuthUI();
+}
+
+async function doSync() {
+    if (!authToken) {
+        openAuthModal();
+        return;
+    }
+    if (isSyncing) return;
+    isSyncing = true;
+
+    // 显示同步中状态
+    DOMElements.syncStatus.textContent = '同步中...';
+    DOMElements.syncStatus.classList.add('syncing');
+
+    try {
+        // 上传本地数据（服务端会合并并返回合并结果）
+        var payload = {
+            charsData: charsData,
+            quizHistory: quizHistory,
+            customGroups: customGroups
+        };
+        var resp = await fetch(SERVER_URL + '/api/sync', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + authToken
+            },
+            body: JSON.stringify(payload)
+        });
+        var data = await resp.json();
+        if (!resp.ok) {
+            throw new Error(data.error || '同步失败');
+        }
+
+        // 应用服务端返回的合并数据到本地
+        applySyncData(data.data);
+
+        DOMElements.syncStatus.textContent = '✓ 已同步';
+        DOMElements.syncStatus.classList.remove('syncing');
+        showSyncResult(true, data.data);
+        setTimeout(function() { DOMElements.syncStatus.textContent = ''; }, 3000);
+    } catch (err) {
+        DOMElements.syncStatus.textContent = '✗ 同步失败';
+        DOMElements.syncStatus.classList.remove('syncing');
+        showSyncResult(false, null, err.message);
+        setTimeout(function() { DOMElements.syncStatus.textContent = ''; }, 5000);
+        // 如果是认证过期，清除登录状态
+        if (err.message.includes('登录') || err.message.includes('token')) {
+            authToken = '';
+            localStorage.removeItem('authToken');
+            updateAuthUI();
+        }
+    } finally {
+        isSyncing = false;
+    }
+}
+
+function applySyncData(data) {
+    if (!data) return;
+    // 应用合并后的汉字数据
+    if (data.charsData) {
+        charsData = data.charsData;
+        localStorage.setItem('charsData', JSON.stringify(charsData));
+    }
+    // 应用合并后的测试记录
+    if (data.quizHistory) {
+        quizHistory = data.quizHistory;
+        localStorage.setItem('quizHistory', JSON.stringify(quizHistory));
+        renderQuizHistory();
+    }
+    // 应用合并后的自定义汉字组
+    if (data.customGroups) {
+        customGroups = data.customGroups;
+        localStorage.setItem('customGroups', JSON.stringify(customGroups));
+        renderCustomGroups();
+    }
+    // 刷新统计页
+    updateHomeStats();
+    if (DOMElements.statsSort) renderStatsGrid();
+}
+
+function showSyncResult(success, data, error) {
+    var title = DOMElements.syncModalTitle;
+    var body = DOMElements.syncModalBody;
+    if (success) {
+        title.textContent = '✅ 同步成功';
+        var charCount = data.charsData ? Object.keys(data.charsData).length : 0;
+        var historyCount = data.quizHistory ? data.quizHistory.length : 0;
+        var groupCount = data.customGroups ? Object.keys(data.customGroups).length : 0;
+        body.innerHTML = '<p>已将本地数据与云端合并</p>' +
+            '<ul style="text-align:left;margin:10px 0;padding-left:20px">' +
+            '<li>汉字记录: ' + charCount + ' 个</li>' +
+            '<li>测试记录: ' + historyCount + ' 条</li>' +
+            '<li>自定义汉字组: ' + groupCount + ' 组</li>' +
+            '</ul>';
+    } else {
+        title.textContent = '❌ 同步失败';
+        body.innerHTML = '<p>' + (error || '未知错误') + '</p>';
+    }
+    DOMElements.syncModal.classList.remove('hidden');
+}
